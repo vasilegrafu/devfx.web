@@ -1,0 +1,104 @@
+﻿/*------------------------------------------------------------------------------------------------*/
+/* background */
+/*------------------------------------------------------------------------------------------------*/
+
+[class-background~=""] {
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* background: color */
+/*------------------------------------------------------------------------------------------------*/
+
+@each $color_name, $color_value in $color-palette {
+  [class-background~="#{$color_name}"],
+  [class-background~="#{$color_name}:hover"]:hover,
+  [class-background~="#{$color_name}:focus"]:focus,
+  [class-background~="#{$color_name}:active"]:active {
+    background-color: $color_value;
+  }
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* background: lighten/darken */
+/*------------------------------------------------------------------------------------------------*/
+
+@mixin background-lighten($opacity) {
+  background-image:    -moz-linear-gradient(top, hsla(0, 0%, 100%, $opacity) 0%, hsla(0, 0%, 100%, $opacity) 100%);
+  background-image: -webkit-linear-gradient(top, hsla(0, 0%, 100%, $opacity) 0%, hsla(0, 0%, 100%, $opacity) 100%);
+  background-image:      -o-linear-gradient(top, hsla(0, 0%, 100%, $opacity) 0%, hsla(0, 0%, 100%, $opacity) 100%);
+  background-image:     -ms-linear-gradient(top, hsla(0, 0%, 100%, $opacity) 0%, hsla(0, 0%, 100%, $opacity) 100%);
+  background-image:         linear-gradient(to bottom, hsla(0, 0%, 100%, $opacity) 0%, hsla(0, 0%, 100%, $opacity) 100%);
+}
+
+@mixin background-darken($opacity) {
+  background-image:    -moz-linear-gradient(top, hsla(0, 0%, 0%, $opacity) 0%, hsla(0, 0%, 0%, $opacity) 100%);
+  background-image: -webkit-linear-gradient(top, hsla(0, 0%, 0%, $opacity) 0%, hsla(0, 0%, 0%, $opacity) 100%);
+  background-image:      -o-linear-gradient(top, hsla(0, 0%, 0%, $opacity) 0%, hsla(0, 0%, 0%, $opacity) 100%);
+  background-image:     -ms-linear-gradient(top, hsla(0, 0%, 0%, $opacity) 0%, hsla(0, 0%, 0%, $opacity) 100%);
+  background-image:         linear-gradient(to bottom, hsla(0, 0%, 0%, $opacity) 0%, hsla(0, 0%, 0%, $opacity) 100%);
+}
+
+@mixin background-lighten-to_top($opacity) {
+  background-image:    -moz-linear-gradient(top, hsla(0, 0%, 100%, $opacity) 0%, hsla(0, 0%, 100%, 0) 100%);
+  background-image: -webkit-linear-gradient(top, hsla(0, 0%, 100%, $opacity) 0%, hsla(0, 0%, 100%, 0) 100%);
+  background-image:      -o-linear-gradient(top, hsla(0, 0%, 100%, $opacity) 0%, hsla(0, 0%, 100%, 0) 100%);
+  background-image:     -ms-linear-gradient(top, hsla(0, 0%, 100%, $opacity) 0%, hsla(0, 0%, 100%, 0) 100%);
+  background-image:         linear-gradient(to bottom, hsla(0, 0%, 100%, $opacity) 0%, hsla(0, 0%, 100%, 0) 100%);
+}
+
+@mixin background-lighten-to_bottom($opacity) {
+  background-image:    -moz-linear-gradient(top, hsla(0, 0%, 100%, 0) 0%, hsla(0, 0%, 100%, $opacity) 100%);
+  background-image: -webkit-linear-gradient(top, hsla(0, 0%, 100%, 0) 0%, hsla(0, 0%, 100%, $opacity) 100%);
+  background-image:      -o-linear-gradient(top, hsla(0, 0%, 100%, 0) 0%, hsla(0, 0%, 100%, $opacity) 100%);
+  background-image:     -ms-linear-gradient(top, hsla(0, 0%, 100%, 0) 0%, hsla(0, 0%, 100%, $opacity) 100%);
+  background-image:         linear-gradient(to bottom, hsla(0, 0%, 100%, 0) 0%, hsla(0, 0%, 100%, $opacity) 100%);
+}
+
+@mixin background-darken-to_top($opacity) {
+  background-image:    -moz-linear-gradient(top, hsla(0, 0%, 0%, $opacity) 0%, hsla(0, 0%, 0%, 0) 100%);
+  background-image: -webkit-linear-gradient(top, hsla(0, 0%, 0%, $opacity) 0%, hsla(0, 0%, 0%, 0) 100%);
+  background-image:      -o-linear-gradient(top, hsla(0, 0%, 0%, $opacity) 0%, hsla(0, 0%, 0%, 0) 100%);
+  background-image:     -ms-linear-gradient(top, hsla(0, 0%, 0%, $opacity) 0%, hsla(0, 0%, 0%, 0) 100%);
+  background-image:         linear-gradient(to bottom, hsla(0, 0%, 0%, $opacity) 0%, hsla(0, 0%, 0%, 0) 100%);
+}
+
+@mixin background-darken-to_bottom($opacity) {
+  background-image:    -moz-linear-gradient(top, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, $opacity) 100%);
+  background-image: -webkit-linear-gradient(top, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, $opacity) 100%);
+  background-image:      -o-linear-gradient(top, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, $opacity) 100%);
+  background-image:     -ms-linear-gradient(top, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, $opacity) 100%);
+  background-image:         linear-gradient(to bottom, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, $opacity) 100%);
+}
+
+@if($include-background-gradients) {
+  @each $class in ('lighten', 'darken', 'lighten-to_top', 'lighten-to_bottom', 'darken-to_top', 'darken-to_bottom') {
+    @each $opacity in $opacity_list {
+      [class-background~="#{$class}\(#{$opacity}\)"],
+      [class-background~="#{$class}\(#{$opacity}\):hover"]:hover,
+      [class-background~="#{$class}\(#{$opacity}\):focus"]:focus,
+      [class-background~="#{$class}\(#{$opacity}\):active"]:active {
+        @if ($class == 'lighten') {
+          @include background-lighten($opacity/100);
+        }
+        @if ($class == 'darken') {
+          @include background-darken($opacity/100);
+        }
+        @if ($class == 'lighten-to_top') {
+          @include background-lighten-to_top($opacity/100);
+        }
+        @if ($class == 'lighten-to_bottom') {
+          @include background-lighten-to_bottom($opacity/100);
+        }
+        @if ($class == 'darken-to_top') {
+          @include background-darken-to_top($opacity/100);
+        }
+        @if ($class == 'darken-to_bottom') {
+          @include background-darken-to_bottom($opacity/100);
+        }
+      }
+    }
+  }
+}
+

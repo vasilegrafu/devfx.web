@@ -1,0 +1,100 @@
+/*------------------------------------------------------------------------------------------------*/
+/* media */
+/*------------------------------------------------------------------------------------------------*/
+
+@if($include-media) {
+  $i: 256;
+  @while ($i >= 16) {
+    @media all and (min-width: ($i + $rempx)) {
+      [class-media~="show-gt\(#{$i}\)"] {
+      }
+    }
+    @media all and (max-width: ($i + $rempx)) {
+      [class-media~="show-gt\(#{$i}\)"] {
+        display: none;
+      }
+    }
+
+    @media all and (min-width: ($i + 0.0em)) {
+      [class-media~="show-gteq\(#{$i}\)"] {
+      }
+    }
+    @media all and (max-width: ($i + 0.0em)) {
+      [class-media~="show-gteq\(#{$i}\)"] {
+        display: none;
+      }
+    }
+
+    @media all and (max-width: ($i - 0.0em)) {
+      [class-media~="show-lteq\(#{$i}\)"] {
+      }
+    }
+    @media all and (min-width: ($i - 0.0em)) {
+      [class-media~="show-lteq\(#{$i}\)"] {
+        display: none;
+      }
+    }
+
+    @media all and (max-width: ($i - $rempx)) {
+      [class-media~="show-lt\(#{$i}\)"] {
+      }
+    }
+    @media all and (min-width: ($i - $rempx)) {
+      [class-media~="show-lt\(#{$i}\)"] {
+        display: none;
+      }
+    }
+
+    $i: $i - 4;
+  }
+}
+
+//--------------------------------------------------------
+
+@if($include-media) {
+  $i: 256;
+  @while ($i >= 16) {
+    @media all and (min-width: ($i + $rempx)) {
+      [class-media~="hide-gt\(#{$i}\)"] {
+        display: none;
+      }
+    }
+    @media all and (max-width: ($i + $rempx)) {
+      [class-media~="hide-gt\(#{$i}\)"] {
+      }
+    }
+
+    @media all and (min-width: ($i + 0.0em)) {
+      [class-media~="hide-gteq\(#{$i}\)"] {
+        display: none;
+      }
+    }
+    @media all and (max-width: ($i + 0.0em)) {
+      [class-media~="hide-gteq\(#{$i}\)"] {
+      }
+    }
+
+    @media all and (max-width: ($i - 0.0em)) {
+      [class-media~="hide-lteq\(#{$i}\)"] {
+        display: none;
+      }
+    }
+    @media all and (min-width: ($i - 0.0em)) {
+      [class-media~="hide-lteq\(#{$i}\)"] {
+      }
+    }
+
+    @media all and (max-width: ($i - $rempx)) {
+      [class-media~="hide-lt\(#{$i}\)"] {
+        display: none;
+      }
+    }
+    @media all and (min-width: ($i - $rempx)) {
+      [class-media~="hide-lt\(#{$i}\)"] {
+      }
+    }
+
+    $i: $i - 4;
+  }
+}
+

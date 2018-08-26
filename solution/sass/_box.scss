@@ -1,0 +1,1344 @@
+﻿/*------------------------------------------------------------------------------------------------*/
+/* box */
+/*------------------------------------------------------------------------------------------------*/
+
+[class-box~=""] {
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* z-index */
+/*------------------------------------------------------------------------------------------------*/
+
+@each $i in (-8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8) {
+  [class-box~="z-index\(#{$i}\)"] {
+    z-index: $i;
+  }
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* visibility */
+/*------------------------------------------------------------------------------------------------*/
+
+[class-box~="hidden_"] > *{
+  visibility: hidden;
+}
+[class-box~="hidden"] {
+  visibility: hidden;
+}
+
+[class-box~="visible_"] > *{
+  visibility: visible;
+}
+[class-box~="visible"] {
+  visibility: visible;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* display: none */
+/*------------------------------------------------------------------------------------------------*/
+
+[class-box~="none_"] > * {
+  display: none;
+}
+[class-box~="none"] {
+  display: none;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* display: block */
+/*------------------------------------------------------------------------------------------------*/
+
+[class-box~="block_"] > * {
+  display: block;
+}
+[class-box~="block"] {
+  display: block;
+}
+
+[class-box~="block-left_"] > * {
+  display: block;
+  margin-left: 0;
+  margin-right: auto;
+}
+[class-box~="block-left"] {
+  display: block;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+[class-box~="block-center_"] > * {
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+}
+[class-box~="block-center"] {
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+[class-box~="block-center_"] > * {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+[class-box~="block-center"] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* display: brick */
+/*------------------------------------------------------------------------------------------------*/
+
+[class-box~="brick_"] > * {
+  display: inline-block;
+}
+[class-box~="brick"] {
+  display: inline-block;
+}
+
+[class-box~="brick-top_"] > * {
+  display: inline-block;
+  vertical-align: top;
+}
+[class-box~="brick-top"] {
+  display: inline-block;
+  vertical-align: top;
+}
+
+[class-box~="brick-middle_"] > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+[class-box~="brick-middle"] {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+[class-box~="brick-bottom_"] > * {
+  display: inline-block;
+  vertical-align: bottom;
+}
+[class-box~="brick-bottom"] {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* overflow */
+/*------------------------------------------------------------------------------------------------*/
+
+[class-box~="overflow\(auto\)"] {
+  overflow: auto;
+}
+
+[class-box~="overflow\(scroll\)"] {
+  overflow: scroll;
+}
+
+[class-box~="overflow\(hidden\)"] {
+  overflow: hidden;
+}
+
+[class-box~="overflow\(visible\)"] {
+  overflow: visible;
+}
+
+/*----------------------------------------------------------------*/
+
+[class-box~="overflow-x\(auto\)"] {
+  overflow-x: auto;
+}
+
+[class-box~="overflow-x\(scroll\)"] {
+  overflow-x: scroll;
+}
+
+[class-box~="overflow-x\(hidden\)"] {
+  overflow-x: hidden;
+}
+
+[class-box~="overflow-x\(visible\)"] {
+  overflow-x: visible;
+}
+
+/*----------------------------------------------------------------*/
+
+[class-box~="overflow-y\(auto\)"] {
+  overflow-y: auto;
+}
+
+[class-box~="overflow-y\(scroll\)"] {
+  overflow-y: scroll;
+}
+
+[class-box~="overflow-y\(hidden\)"] {
+  overflow-y: hidden;
+}
+
+[class-box~="overflow-y\(visible\)"] {
+  overflow-y: visible;
+}
+
+/*----------------------------------------------------------------*/
+
+[class-box~="stretch-x_"] > * {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+[class-box~="stretch-x"] {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+[class-box~="stretch-y_"] > * {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+[class-box~="stretch-y"] {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+[class-box~="stretch_"] > * {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+[class-box~="stretch"] {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* size-x
+/*------------------------------------------------------------------------------------------------*/
+
+@mixin generate_classes-size-x_($size-x) {
+  [class-box~="size-x\(#{$size-x}\)_"] > * {
+    width: $size-x*$rem;
+  }
+  [class-box~="min-size-x\(#{$size-x}\)_"] > * {
+    min-width: $size-x*$rem;
+  }
+  [class-box~="max-size-x\(#{$size-x}\)_"] > * {
+    max-width: $size-x*$rem;
+  }
+}
+$size-x: 0;
+@while($size-x <= 32) { @include generate_classes-size-x_($size-x);  $size-x: $size-x + 1; }
+$size-x: (32 + 2);
+@while($size-x <= 64) { @include generate_classes-size-x_($size-x);  $size-x: $size-x + 2; }
+$size-x: (64 + 4);
+@while($size-x <= 128) { @include generate_classes-size-x_($size-x);  $size-x: $size-x + 4; }
+$size-x: (128 + 8);
+@while($size-x <= 256) { @include generate_classes-size-x_($size-x);  $size-x: $size-x + 8; }
+$size-x: (256 + 16);
+@while($size-x <= 512) { @include generate_classes-size-x_($size-x);  $size-x: $size-x + 16; }
+
+@mixin generate_classes-size-x_($size-x) {
+  [class-box~="size-x\(#{$size-x}\%\)_"] > * {
+    width: $size-x + 0.0%;
+  }
+}
+$size-x: 0;
+@while($size-x <= 100) { @include generate_classes-size-x_($size-x);  $size-x: $size-x + 1; }
+
+/*----------------------------------------------------------------*/
+
+@mixin generate_classes-size-x($size-x) {
+  [class-box~="size-x\(#{$size-x}\)"] {
+    width: $size-x*$rem;
+  }
+  [class-box~="min-size-x\(#{$size-x}\)"] {
+    min-width: $size-x*$rem;
+  }
+  [class-box~="max-size-x\(#{$size-x}\)"] {
+    max-width: $size-x*$rem;
+  }
+}
+$size-x: 0;
+@while($size-x <= 32) { @include generate_classes-size-x($size-x);  $size-x: $size-x + 1; }
+$size-x: (32 + 2);
+@while($size-x <= 64) { @include generate_classes-size-x($size-x);  $size-x: $size-x + 2; }
+$size-x: (64 + 4);
+@while($size-x <= 128) { @include generate_classes-size-x($size-x);  $size-x: $size-x + 4; }
+$size-x: (128 + 8);
+@while($size-x <= 256) { @include generate_classes-size-x($size-x);  $size-x: $size-x + 8; }
+$size-x: (256 + 16);
+@while($size-x <= 512) { @include generate_classes-size-x($size-x);  $size-x: $size-x + 16; }
+
+@mixin generate_classes-size-x($size-x) {
+  [class-box~="size-x\(#{$size-x}\%\)"] {
+    width: $size-x + 0.0%;
+  }
+}
+$size-x: 0;
+@while($size-x <= 100) { @include generate_classes-size-x($size-x);  $size-x: $size-x + 1; }
+
+/*----------------------------------------------------------------*/
+
+[class-box~="size-x\(auto\)_"] > * {
+  width: auto;
+}
+
+[class-box~="size-x\(auto\)"] {
+  width: auto;
+}
+
+/*----------------------------------------------------------------*/
+
+[class-box~="size-x\(max\)_"] > * {
+  width: 100%;
+}
+
+[class-box~="size-x\(max\)"] {
+  width: 100%;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* size-y
+/*------------------------------------------------------------------------------------------------*/
+
+@mixin generate_classes-size-y_($size-y) {
+  [class-box~="size-y\(#{$size-y}\)_"] > * {
+    height: $size-y*$rem;
+  }
+  [class-box~="min-size-y\(#{$size-y}\)_"] > * {
+    min-height: $size-y*$rem;
+  }
+  [class-box~="max-size-y\(#{$size-y}\)_"] > * {
+    max-height: $size-y*$rem;
+  }
+}
+$size-y: 0;
+@while($size-y <= 32) { @include generate_classes-size-y_($size-y);  $size-y: $size-y + 1; }
+$size-y: (32 + 2);
+@while($size-y <= 64) { @include generate_classes-size-y_($size-y);  $size-y: $size-y + 2; }
+$size-y: (64 + 4);
+@while($size-y <= 128) { @include generate_classes-size-y_($size-y);  $size-y: $size-y + 4; }
+$size-y: (128 + 8);
+@while($size-y <= 256) { @include generate_classes-size-y_($size-y);  $size-y: $size-y + 8; }
+$size-y: (256 + 16);
+@while($size-y <= 512) { @include generate_classes-size-y_($size-y);  $size-y: $size-y + 16; }
+
+@mixin generate_classes-size-y_($size-y) {
+  [class-box~="size-y\(#{$size-y}\%\)_"] > * {
+    height: $size-y + 0.0%;
+  }
+}
+$size-y: 0;
+@while($size-y <= 100) { @include generate_classes-size-y_($size-y);  $size-y: $size-y + 1; }
+
+/*----------------------------------------------------------------*/
+
+@mixin generate_classes-size-y($size-y) {
+  [class-box~="size-y\(#{$size-y}\)"] {
+    height: $size-y*$rem;
+  }
+  [class-box~="min-size-y\(#{$size-y}\)"] {
+    min-height: $size-y*$rem;
+  }
+  [class-box~="max-size-y\(#{$size-y}\)"] {
+    max-height: $size-y*$rem;
+  }
+}
+$size-y: 0;
+@while($size-y <= 32) { @include generate_classes-size-y($size-y);  $size-y: $size-y + 1; }
+$size-y: (32 + 2);
+@while($size-y <= 64) { @include generate_classes-size-y($size-y);  $size-y: $size-y + 2; }
+$size-y: (64 + 4);
+@while($size-y <= 128) { @include generate_classes-size-y($size-y);  $size-y: $size-y + 4; }
+$size-y: (128 + 8);
+@while($size-y <= 256) { @include generate_classes-size-y($size-y);  $size-y: $size-y + 8; }
+$size-y: (256 + 16);
+@while($size-y <= 512) { @include generate_classes-size-y($size-y);  $size-y: $size-y + 16; }
+
+@mixin generate_classes-size-y($size-y) {
+  [class-box~="size-y\(#{$size-y}\%\)"] {
+    height: $size-y + 0.0%;
+  }
+}
+$size-y: 0;
+@while($size-y <= 100) { @include generate_classes-size-y($size-y);  $size-y: $size-y + 1; }
+
+/*----------------------------------------------------------------*/
+
+[class-box~="size-y\(auto\)_ "]> * {
+  height: auto;
+}
+
+[class-box~="size-y\(auto\)"] {
+  height: auto;
+}
+
+/*----------------------------------------------------------------*/
+
+[class-box~="size-y\(max\)_"] > * {
+  height: 100%;
+}
+
+[class-box~="size-y\(max\)"] {
+  height: 100%;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* size
+/*------------------------------------------------------------------------------------------------*/
+
+@mixin generate_classes-size_($size) {
+  [class-box~="size\(#{$size}\)_"] > * {
+    width: $size*$rem;
+    height: $size*$rem;
+  }
+  [class-box~="min-size\(#{$size}\)_"] > * {
+    min-width: $size*$rem;
+    min-height: $size*$rem;
+  }
+  [class-box~="max-size\(#{$size}\)_"] > * {
+    max-width: $size*$rem;
+    max-height: $size*$rem;
+  }
+}
+$size: 0;
+@while($size <= 32) { @include generate_classes-size_($size);  $size: $size + 1; }
+$size: (32 + 2);
+@while($size <= 64) { @include generate_classes-size_($size);  $size: $size + 2; }
+$size: (64 + 4);
+@while($size <= 128) { @include generate_classes-size_($size);  $size: $size + 4; }
+$size: (128 + 8);
+@while($size <= 256) { @include generate_classes-size_($size);  $size: $size + 8; }
+$size: (256 + 16);
+@while($size <= 512) { @include generate_classes-size_($size);  $size: $size + 16; }
+
+@mixin generate_classes-size_($size) {
+  [class-box~="size\(#{$size}\%\)_"] > * {
+    width: $size + 0.0%;
+    height: $size + 0.0%;
+  }
+}
+$size: 0;
+@while($size <= 100) { @include generate_classes-size_($size);  $size: $size + 1; }
+
+/*----------------------------------------------------------------*/
+
+@mixin generate_classes-size($size) {
+  [class-box~="size\(#{$size}\)"] {
+    width: $size*$rem;
+    height: $size*$rem;
+  }
+  [class-box~="min-size\(#{$size}\)"] {
+    min-width: $size*$rem;
+    min-height: $size*$rem;
+  }
+  [class-box~="max-size\(#{$size}\)"] {
+    max-width: $size*$rem;
+    max-height: $size*$rem;
+  }
+}
+$size: 0;
+@while($size <= 32) { @include generate_classes-size($size);  $size: $size + 1; }
+$size: (32 + 2);
+@while($size <= 64) { @include generate_classes-size($size);  $size: $size + 2; }
+$size: (64 + 4);
+@while($size <= 128) { @include generate_classes-size($size);  $size: $size + 4; }
+$size: (128 + 8);
+@while($size <= 256) { @include generate_classes-size($size);  $size: $size + 8; }
+$size: (256 + 16);
+@while($size <= 512) { @include generate_classes-size($size);  $size: $size + 16; }
+
+@mixin generate_classes-size($size) {
+  [class-box~="size\(#{$size}\%\)"] {
+    width: $size + 0.0%;
+    height: $size + 0.0%;
+  }
+}
+$size: 0;
+@while($size <= 100) { @include generate_classes-size($size);  $size: $size + 1; }
+
+/*----------------------------------------------------------------*/
+
+[class-box~="size\(auto\)_"] > * {
+  width: auto;
+  height: auto;
+}
+
+[class-box~="size\(auto\)"] {
+  width: auto;
+  height: auto;
+}
+
+/*----------------------------------------------------------------*/
+
+[class-box~="size\(max\)_"] > * {
+  width: 100%;
+  height: 100%;
+}
+
+[class-box~="size\(max\)"] {
+  width: 100%;
+  height: 100%;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* margin */
+/*------------------------------------------------------------------------------------------------*/
+
+@mixin generate_margin_($box-margin-index) {
+  $box-margin: $box-margin-index*(1.0*$rempx);
+
+  [class-box~="margin\(#{$box-margin-index}\)_"] > * {
+    margin: $box-margin;
+  }
+  [class-box~="margin\(#{$box-margin-index}\)-x_"] > * {
+    margin-left: $box-margin;
+    margin-right: $box-margin;
+  }
+  [class-box~="margin\(#{$box-margin-index}\)-left_"] > * {
+    margin-left: $box-margin;
+  }
+  [class-box~="margin\(#{$box-margin-index}\)-right_"] > * {
+    margin-right: $box-margin;
+  }
+  [class-box~="margin\(#{$box-margin-index}\)-y_"] > * {
+    margin-top: $box-margin;
+    margin-bottom: $box-margin;
+  }
+  [class-box~="margin\(#{$box-margin-index}\)-top_"] > * {
+    margin-top: $box-margin;
+  }
+  [class-box~="margin\(#{$box-margin-index}\)-bottom_"] > * {
+    margin-bottom: $box-margin;
+  }
+}
+
+@each $box-margin-index in $box-margin-indexes {
+  @include generate_margin_($box-margin-index);
+}
+
+/*----------------------------------------------------------------*/
+
+@mixin generate_margin($box-margin-index) {
+  $box-margin: $box-margin-index*(1.0*$rempx);
+
+  [class-box~="margin\(#{$box-margin-index}\)"] {
+    margin: $box-margin;
+  }
+  [class-box~="margin\(#{$box-margin-index}\)-x"] {
+    margin-left: $box-margin;
+    margin-right: $box-margin;
+  }
+  [class-box~="margin\(#{$box-margin-index}\)-left"] {
+    margin-left: $box-margin;
+  }
+  [class-box~="margin\(#{$box-margin-index}\)-right"] {
+    margin-right: $box-margin;
+  }
+  [class-box~="margin\(#{$box-margin-index}\)-y"] {
+    margin-top: $box-margin;
+    margin-bottom: $box-margin;
+  }
+  [class-box~="margin\(#{$box-margin-index}\)-top"] {
+    margin-top: $box-margin;
+  }
+  [class-box~="margin\(#{$box-margin-index}\)-bottom"] {
+    margin-bottom: $box-margin;
+  }
+}
+
+@each $box-margin-index in $box-margin-indexes {
+  @include generate_margin($box-margin-index);
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* padding */
+/*------------------------------------------------------------------------------------------------*/
+
+@mixin generate_padding_($box-padding-index) {
+  $box-padding: $box-padding-index*(1.0*$rempx);
+
+  [class-box~="padding\(#{$box-padding-index}\)_"] > * {
+    padding: $box-padding;
+  }
+  [class-box~="padding\(#{$box-padding-index}\)-x_"] > * {
+    padding-left: $box-padding;
+    padding-right: $box-padding;
+  }
+  [class-box~="padding\(#{$box-padding-index}\)-left_"] > * {
+    padding-left: $box-padding;
+  }
+  [class-box~="padding\(#{$box-padding-index}\)-right_"] > * {
+    padding-right: $box-padding;
+  }
+  [class-box~="padding\(#{$box-padding-index}\)-y_"] > * {
+    padding-top: $box-padding;
+    padding-bottom: $box-padding;
+  }
+  [class-box~="padding\(#{$box-padding-index}\)-top_"] > * {
+    padding-top: $box-padding;
+  }
+  [class-box~="padding\(#{$box-padding-index}\)-bottom_"] > * {
+    padding-bottom: $box-padding;
+  }
+}
+
+@each $box-padding-index in $box-padding-indexes {
+  @include generate_padding_($box-padding-index);
+}
+
+/*----------------------------------------------------------------*/
+
+@mixin generate_padding($box-padding-index) {
+  $box-padding: $box-padding-index*(1.0*$rempx);
+
+  [class-box~="padding\(#{$box-padding-index}\)"] {
+    padding: $box-padding;
+  }
+  [class-box~="padding\(#{$box-padding-index}\)-x"] {
+    padding-left: $box-padding;
+    padding-right: $box-padding;
+  }
+  [class-box~="padding\(#{$box-padding-index}\)-left"] {
+    padding-left: $box-padding;
+  }
+  [class-box~="padding\(#{$box-padding-index}\)-right"] {
+    padding-right: $box-padding;
+  }
+  [class-box~="padding\(#{$box-padding-index}\)-y"] {
+    padding-top: $box-padding;
+    padding-bottom: $box-padding;
+  }
+  [class-box~="padding\(#{$box-padding-index}\)-top"] {
+    padding-top: $box-padding;
+  }
+  [class-box~="padding\(#{$box-padding-index}\)-bottom"] {
+    padding-bottom: $box-padding;
+  }
+}
+
+@each $box-padding-index in $box-padding-indexes {
+  @include generate_padding($box-padding-index);
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* align */
+/*------------------------------------------------------------------------------------------------*/
+
+[class-box~="to\(left\)_"] > * {
+  text-align: left;
+}
+[class-box~="to\(left\)_"] > * > * {
+  display: inline-block;
+}
+
+[class-box~="to\(left\)"]  {
+  text-align: left;
+}
+[class-box~="to\(left\)"] > * {
+  display: inline-block;
+}
+
+/*--------------------------------*/
+
+[class-box~="to\(xcenter\)_"] > *,
+[class-box~="to\(x\+\)_"] > * {
+  text-align: center;
+}
+[class-box~="to\(xcenter\)_"] > * > *,
+[class-box~="to\(x\+\)_"] > * > * {
+  display: inline-block;
+}
+
+[class-box~="to\(xcenter\)"],
+[class-box~="to\(x\+\)"] {
+  text-align: center;
+}
+[class-box~="to\(xcenter\)"] > *,
+[class-box~="to\(x\+\)"] > * {
+  display: inline-block;
+}
+
+/*--------------------------------*/
+
+[class-box~="to\(right\)_"] > * {
+  text-align: right;
+}
+[class-box~="to\(right\)_"] > * > * {
+  display: inline-block;
+}
+
+[class-box~="to\(right\)"] {
+  text-align: right;
+}
+[class-box~="to\(right\)"] > * {
+  display: inline-block;
+}
+
+/*----------------------------------------------------------------*/
+
+[class-box~="to\(top\)_"] > * > * {
+  display: inline-block;
+  vertical-align: top;
+}
+
+[class-box~="to\(top\)"] > * {
+  display: inline-block;
+  vertical-align: top;
+}
+
+/*--------------------------------*/
+
+[class-box~="to\(ycenter\)_"] > * > *,
+[class-box~="to\(y\+\)_"] > * > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+[class-box~="to\(ycenter\)"] > *,
+[class-box~="to\(y\+\)"] > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/*--------------------------------*/
+
+[class-box~="to\(bottom\)_"] > * > * {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+[class-box~="to\(bottom\)"] > * {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+/*----------------------------------------------------------------*/
+
+[class-box~="to\(center\)_"] > *,
+[class-box~="to\(\+\)_"] > * {
+  text-align: center;
+}
+[class-box~="to\(center\)_"] > * > *,
+[class-box~="to\(\+\)_"] > * > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+[class-box~="to\(center\)"],
+[class-box~="to\(\+\)"] {
+  text-align: center;
+}
+[class-box~="to\(center\)"] > *,
+[class-box~="to\(\+\)"] > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* separator */
+/*------------------------------------------------------------------------------------------------*/
+
+$i: 1;
+@while($i <= 64) {
+  $value: $i*(1.0*$rempx);
+
+  [class-box~="separator\(#{$i}\)-x"] {
+    display: inline-block;
+    width: $value;
+    height: 100%;
+  }
+  [class-box~="separator\(#{$i}\)-y"] {
+    display: block;
+    width: 100%;
+    height: $value;
+  }
+
+  $i: $i + 1;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* wrapping */
+/*------------------------------------------------------------------------------------------------*/
+
+[class-box~="wrap\(no\)_"] > * {
+  white-space: nowrap;
+}
+
+[class-box~="wrap\(no\)"] {
+  white-space: nowrap;
+}
+
+/*----------------------------------------------------------------*/
+
+[class-box~="wrap\(yes\)_"] > * {
+  white-space: normal;
+}
+
+[class-box~="wrap\(yes\)"] {
+  white-space: normal;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* vstack */
+/*------------------------------------------------------------------------------------------------*/
+
+[class-box~="vstack"] {
+}
+[class-box~="vstack"] > * {
+  display: block;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* hstack */
+/*------------------------------------------------------------------------------------------------*/
+
+[class-box~="hstack"] {
+}
+[class-box~="hstack"] > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* matrix */
+/*------------------------------------------------------------------------------------------------*/
+
+[class-box~="matrix"] {
+}
+[class-box~="matrix"]> * {
+  display: block;
+  white-space: nowrap;
+  text-align: center;
+}
+[class-box~="matrix"] > * > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* table-frame */
+/*------------------------------------------------------------------------------------------------*/
+
+[class-box~="table-frame"] {
+  display: table;
+  border-collapse: collapse;
+}
+
+[class-box~="table-frame"] > [class-box~="table-head"] {
+  display: table-header-group;
+}
+
+[class-box~="table-frame"] > [class-box~="table-header"] > [class-box~="table-row"] {
+  display: table-row;
+}
+
+[class-box~="table-frame"] > [class-box~="table-header"] > [class-box~="table-row"] > [class-box~="table-cell"] {
+  display: table-cell;
+}
+
+[class-box~="table-frame"] > [class-box~="table-body"] {
+  display: table-row-group;
+}
+
+[class-box~="table-frame"] > [class-box~="table-body"] > [class-box~="table-row"] {
+  display: table-row;
+}
+
+[class-box~="table-frame"] > [class-box~="table-body"] > [class-box~="table-row"] > [class-box~="table-cell"] {
+  display: table-cell;
+}
+
+[class-box~="table-frame"] > [class-box~="table-footer"] {
+  display: table-row-group;
+}
+
+[class-box~="table-frame"] > [class-box~="table-footer"] > [class-box~="table-row"] {
+  display: table-row;
+}
+
+[class-box~="table-frame"] > [class-box~="table-footer"] > [class-box~="table-row"] > [class-box~="table-cell"] {
+  display: table-cell;
+}
+
+[class-box~="table-frame"] > [class-box~="table-row"] {
+  display: table-row;
+}
+
+[class-box~="table-frame"] > [class-box~="table-row"] > [class-box~="table-cell"] {
+  display: table-cell;
+}
+
+[class-box~="table-frame"] > [class-box~="table-cell"] {
+  display: table-cell;
+}
+
+[class-box~="table-frame"] [class-box~="table-cell"] {
+  display: table-cell;
+  text-align: center;
+}
+[class-box~="table-frame"] [class-box~="table-cell"] > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* float-frame */
+/*------------------------------------------------------------------------------------------------*/
+
+[class-box~="float-frame"] {
+  &::before{
+    content: " ";
+    display: block;
+    height: 0;
+    visibility: hidden;
+  }
+  &::after {
+    content: " ";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+  }
+}
+
+[class-box~="float-frame"] > [class-box~="float-left"] {
+  float: left;
+}
+
+[class-box~="float-frame"] > [class-box~="float-right"] {
+  float: right;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* position-frame */
+/*------------------------------------------------------------------------------------------------*/
+
+[class-box~="position-frame"] {
+  position: relative;
+}
+
+[class-box~="position-frame"] > [class-box~="position-top"] {
+  position: absolute;
+  top: 0;
+}
+
+[class-box~="position-frame"] > [class-box~="position-bottom"] {
+  position: absolute;
+  bottom: 0;
+}
+
+[class-box~="position-frame"] > [class-box~="position-left"] {
+  position: absolute;
+  left: 0;
+}
+
+[class-box~="position-frame"] > [class-box~="position-right"] {
+  position: absolute;
+  right: 0;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* dock-frame */
+/*------------------------------------------------------------------------------------------------*/
+
+[class-box~="dock-frame"] {
+  position: relative;
+}
+
+[class-box~="dock-frame"] > [class-box~="dock-top"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+}
+
+[class-box~="dock-frame"] > [class-box~="dock-bottom"] {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+[class-box~="dock-frame"] > [class-box~="dock-left"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+[class-box~="dock-frame"] > [class-box~="dock-right"] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* layers-frame */
+/*------------------------------------------------------------------------------------------------*/
+
+[class-box~="layers-frame"] {
+  position: relative;
+}
+
+[class-box~="layers-frame"] > * {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* box: corner-radius */
+/*------------------------------------------------------------------------------------------------*/
+
+@mixin box-corner-radius($radius) {
+  border-top-left-radius: $radius;
+  border-top-right-radius: $radius;
+  border-bottom-left-radius: $radius;
+  border-bottom-right-radius: $radius;
+}
+
+@mixin box-corner-radius-top($radius) {
+  border-top-left-radius: $radius;
+  border-top-right-radius: $radius;
+}
+@mixin box-corner-radius-right($radius) {
+  border-top-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+}
+@mixin box-corner-radius-bottom($radius) {
+  border-bottom-left-radius: $radius;
+  border-bottom-right-radius: $radius;
+}
+@mixin box-corner-radius-left($radius) {
+  border-top-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+
+@mixin box-corner-radius-top_left($radius) {
+  border-top-left-radius: $radius;
+}
+@mixin box-corner-radius-top_right($radius) {
+  border-top-right-radius: $radius;
+}
+@mixin box-corner-radius-bottom_right($radius) {
+  border-bottom-right-radius: $radius;
+}
+@mixin box-corner-radius-bottom_left($radius) {
+  border-bottom-left-radius: $radius;
+}
+
+/*--------------------------------------------------------*/
+
+@each $box-corner-radius-index in $box-corner-radius-indexes  {
+  $box-corner-radius: $box-corner-radius-index*(1.0*$rempx);
+
+  [class-box~="corner-radius\(#{$box-corner-radius-index}\)"] {
+    @include box-corner-radius($box-corner-radius);
+    &::after {
+      @include box-corner-radius($box-corner-radius);
+    }
+  }
+  [class-box~="corner-radius-top\(#{$box-corner-radius-index}\)"] {
+    @include box-corner-radius-top($box-corner-radius);
+    &::after {
+      @include box-corner-radius-top($box-corner-radius);
+    }
+  }
+  [class-box~="corner-radius-right\(#{$box-corner-radius-index}\)"] {
+    @include box-corner-radius-right($box-corner-radius);
+    &::after {
+      @include box-corner-radius-right($box-corner-radius);
+    }
+  }
+  [class-box~="corner-radius-bottom\(#{$box-corner-radius-index}\)"] {
+    @include box-corner-radius-bottom($box-corner-radius);
+    &::after {
+      @include box-corner-radius-bottom($box-corner-radius);
+    }
+  }
+  [class-box~="corner-radius-left\(#{$box-corner-radius-index}\)"] {
+    @include box-corner-radius-left($box-corner-radius);
+    &::after {
+      @include box-corner-radius-left($box-corner-radius);
+    }
+  }
+
+  [class-box~="corner-radius-top_left\(#{$box-corner-radius-index}\)"] {
+    @include box-corner-radius-top_left($box-corner-radius);
+    &::after {
+      @include box-corner-radius-top_left($box-corner-radius);
+    }
+  }
+  .corner-radius-top_right\(#{$box-corner-radius-index}\) {
+    @include box-corner-radius-top_right($box-corner-radius);
+    &::after {
+      @include box-corner-radius-top_right($box-corner-radius);
+    }
+  }
+  [class-box~="corner-radius-bottom_right\(#{$box-corner-radius-index}\)"] {
+    @include box-corner-radius-bottom_right($box-corner-radius);
+    &::after {
+      @include box-corner-radius-bottom_right($box-corner-radius);
+    }
+  }
+  [class-box~="corner-radius-bottom_left\(#{$box-corner-radius-index}\)"] {
+    @include box-corner-radius-bottom_left($box-corner-radius);
+    &::after {
+      @include box-corner-radius-bottom_left($box-corner-radius);
+    }
+  }
+
+  [class-box~="corner-radius-top_left-bottom_right\(#{$box-corner-radius-index}\)"] {
+    @include box-corner-radius-top_left($box-corner-radius);
+    @include box-corner-radius-bottom_right($box-corner-radius);
+    &::after {
+      @include box-corner-radius-top_left($box-corner-radius);
+      @include box-corner-radius-bottom_right($box-corner-radius);
+    }
+  }
+  [class-box~="corner-radius-bottom_right-top_left\(#{$box-corner-radius-index}\)"] {
+    @include box-corner-radius-bottom_right($box-corner-radius);
+    @include box-corner-radius-top_left($box-corner-radius);
+    &::after {
+      @include box-corner-radius-bottom_right($box-corner-radius);
+      @include box-corner-radius-top_left($box-corner-radius);
+    }
+  }
+
+  [class-box~="corner-radius-top_right-bottom_left\(#{$box-corner-radius-index}\)"] {
+    @include box-corner-radius-top_right($box-corner-radius);
+    @include box-corner-radius-bottom_left($box-corner-radius);
+    &::after {
+      @include box-corner-radius-top_right($box-corner-radius);
+      @include box-corner-radius-bottom_left($box-corner-radius);
+    }
+  }
+  [class-box~="corner-radius-bottom_left-top_right\(#{$box-corner-radius-index}\)"] {
+    @include box-corner-radius-bottom_left($box-corner-radius);
+    @include box-corner-radius-top_right($box-corner-radius);
+    &::after {
+      @include box-corner-radius-bottom_left($box-corner-radius);
+      @include box-corner-radius-top_right($box-corner-radius);
+    }
+  }
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* line */
+/*------------------------------------------------------------------------------------------------*/
+
+[class-box~="line-x"] {
+  border-top-style: solid;
+  border-top-width: thin;
+  border-top-color: transparent;
+  border-right-style: none;
+  border-bottom-style: none;
+  border-left-style: none;
+  width: 100%;
+  height: 0;
+}
+
+[class-box~="line-y"] {
+  border-top-style: none;
+  border-right-style: none;
+  border-bottom-style: none;
+  border-left-style: solid;
+  border-left-width: thin;
+  border-left-color: transparent;
+  width: 0;
+  height: 100%;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* box: opacity/transparency */
+/*------------------------------------------------------------------------------------------------*/
+
+@each $opacity in $opacity_list {
+  [class-box~="opacity\(#{$opacity}\)"] {
+    opacity: $opacity/100;
+  }
+}
+
+@each $opacity in $opacity_list {
+  [class-box~="transparency\(#{$opacity}\)"] {
+    opacity: (1.0 - $opacity/100);
+  }
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* box: lighten/darken */
+/*------------------------------------------------------------------------------------------------*/
+
+@mixin box-lighten($opacity) {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    background-color: #FFFFFF;
+    opacity: $opacity/100;
+  }
+}
+
+@mixin box-darken($opacity) {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    background-color: #000000;
+    opacity: $opacity/100;
+  }
+}
+
+/*--------------------------------------------------------*/
+
+@each $opacity in $opacity_list {
+  [class-box~="lighten\(#{$opacity}\)"],
+  [class-box~="lighten\(#{$opacity}\):hover"]:hover,
+  [class-box~="lighten\(#{$opacity}\):focus"]:focus,
+  [class-box~="lighten\(#{$opacity}\):active"]:active {
+    @include box-lighten($opacity);
+  }
+  [class-box~="darken\(#{$opacity}\)"],
+  [class-box~="darken\(#{$opacity}\):hover"]:hover,
+  [class-box~="darken\(#{$opacity}\):focus"]:focus,
+  [class-box~="darken\(#{$opacity}\):active"]:active {
+    @include box-darken($opacity);
+  }
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* transition: */
+/*------------------------------------------------------------------------------------------------*/
+
+$value: 0;
+@while ($value <= 100) {
+  [class-box~="transition\(#{$value}\)"] {
+    transition: ($value/100)#{'s'};
+  }
+  $value: $value + 5;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* box: glow */
+/*------------------------------------------------------------------------------------------------*/
+@mixin box-glow($parameters) {
+  // $parameters: blur-radius color
+
+  box-shadow: 0 0 $parameters;
+}
+
+@if($include-box-glow)
+{
+  @each $box-glow-blur-radius-index in $box-glow-blur-radius-indexes {
+    $box-glow-blur-radius: $box-glow-blur-radius-index*$box-glow-blur-radius-unit;
+
+    [class-box~="glow\(#{$box-glow-blur-radius-index}\)"],
+    [class-box~="glow\(#{$box-glow-blur-radius-index}\):hover"]:hover,
+    [class-box~="glow\(#{$box-glow-blur-radius-index}\):focus"]:focus,
+    [class-box~="glow\(#{$box-glow-blur-radius-index}\):active"]:active {
+      @include box-glow($box-glow-blur-radius);
+    }
+    @each $color_name, $color_value in $color-palette {
+      [class-box~="glow\(#{$box-glow-blur-radius-index}:#{$color_name}\)"],
+      [class-box~="glow\(#{$box-glow-blur-radius-index}:#{$color_name}\):hover"]:hover,
+      [class-box~="glow\(#{$box-glow-blur-radius-index}:#{$color_name}\):focus"]:focus,
+      [class-box~="glow\(#{$box-glow-blur-radius-index}:#{$color_name}\):active"]:active {
+        @include box-glow($box-glow-blur-radius $color_value);
+      }
+    }
+  }
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* box: shadow */
+/*------------------------------------------------------------------------------------------------*/
+
+@mixin box-shadow($parameters) {
+  // $parameters: h-shadow v-shadow blur-radius color
+
+  box-shadow: $parameters;
+}
+
+@if($include-box-shadow)
+{
+  @each $box-shadow-h-index in $box-shadow-h-indexes {
+    $box-shadow-h: $box-shadow-h-index*$box-shadow-h-unit;
+    @each $box-shadow-v-index in $box-shadow-v-indexes {
+      $box-shadow-v: $box-shadow-v-index*$box-shadow-v-unit;
+      @each $box-shadow-blur-radius-index in $box-shadow-blur-radius-indexes {
+        $box-shadow-blur-radius: $box-shadow-blur-radius-index*$box-shadow-blur-radius-unit;
+
+        [class-box~="shadow\(#{$box-shadow-v-index}:#{$box-shadow-h-index}:#{$box-shadow-blur-radius-index}\)"] {
+          @include box-shadow($box-shadow-h $box-shadow-v $box-shadow-blur-radius);
+        }
+        $box-shadow-colors: (
+          /* Black-White */
+                'Black': map-get($color-palette, 'Black'),
+                'White': map-get($color-palette, 'White'),
+                'LightGray': map-get($color-palette, 'LightGray'),
+                'Gray': map-get($color-palette, 'Gray'),
+                'DarkGray': map-get($color-palette, 'DarkGray')
+        );
+        @each $color_name, $color_value in $box-shadow-colors {
+          [class-box~="shadow\(#{$box-shadow-v-index}:#{$box-shadow-h-index}:#{$box-shadow-blur-radius-index}:#{$color_name}\)"] {
+            @include box-shadow($box-shadow-h $box-shadow-v $box-shadow-blur-radius $color_value);
+          }
+        }
+      }
+    }
+  }
+}
+

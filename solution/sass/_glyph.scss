@@ -1,0 +1,184 @@
+﻿/*------------------------------------------------------------------------------------------------*/
+/* glyph */
+/*------------------------------------------------------------------------------------------------*/
+
+[class-glyph~=""] {
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* glyph: % */
+/*------------------------------------------------------------------------------------------------*/
+
+$value: 100;
+@while ($value <= 1600) {
+  [class-glyph~="#{$value}\%"] {
+    font-size: (1.0*$rem)*($value/100);
+  }
+  $value: $value + 5;
+}
+
+$value: 100;
+@while ($value >= 1) {
+  [class-glyph~="#{$value}\%"] {
+    font-size: (1.0*$rem)*($value/100);
+  }
+  $value: $value - 1;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* glyph: color */
+/*------------------------------------------------------------------------------------------------*/
+
+@each $color_name, $color_value in $color-palette {
+    [class-glyph~="#{$color_name}"],
+    [class-glyph~="#{$color_name}:hover"]:hover,
+    [class-glyph~="#{$color_name}:focus"]:focus,
+    [class-glyph~="#{$color_name}:active"]:active {
+      color: $color_value;
+    }
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* glyph: family */
+/*------------------------------------------------------------------------------------------------*/
+
+[class-glyph~="serif"] {
+  font-family: serif;
+}
+
+[class-glyph~="sans-serif"] {
+  font-family: sans-serif;
+}
+
+[class-glyph~="monospace"] {
+  font-family: sans-serif;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* glyph: weight */
+/*------------------------------------------------------------------------------------------------*/
+
+[class-glyph~="normal"] {
+  font-weight: normal;
+}
+[class-glyph~="bold"] {
+  font-weight: bold;
+}
+
+[class-glyph~="lighter"] {
+  font-weight: lighter;
+}
+[class-glyph~="bolder"] {
+  font-weight: bolder;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* glyph: style */
+/*------------------------------------------------------------------------------------------------*/
+
+[class-glyph~="normal"] {
+  font-style: normal;
+}
+[class-glyph~="oblique"] {
+  font-style: oblique;
+}
+
+[class-glyph~="italic"] {
+  font-style: italic;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* glyph: decoration */
+/*------------------------------------------------------------------------------------------------*/
+
+[class-glyph~="underline"] {
+  text-decoration: underline;
+}
+[class-glyph~="overline"] {
+  text-decoration: overline;
+}
+[class-glyph~="throughline"] {
+  text-decoration: line-through;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* glyph: glow */
+/*------------------------------------------------------------------------------------------------*/
+
+@mixin glyph-glow($parameters) {
+  // $parameters: blur-radius color
+
+  text-shadow: 0 0 $parameters;
+}
+
+@if($include-glyph-glow)
+{
+  @each $glyph-glow-blur-radius-index in $glyph-glow-blur-radius-indexes {
+    $glyph-glow-blur-radius: $glyph-glow-blur-radius-index*$glyph-glow-blur-radius-unit;
+
+    [class-glyph~="glow\(#{$glyph-glow-blur-radius-index}\)"],
+    [class-glyph~="glow\(#{$glyph-glow-blur-radius-index}\):hover"]:hover,
+    [class-glyph~="glow\(#{$glyph-glow-blur-radius-index}\):focus"]:focus,
+    [class-glyph~="glow\(#{$glyph-glow-blur-radius-index}\):active"]:active {
+      @include glyph-glow($glyph-glow-blur-radius);
+    }
+    @each $color_name, $color_value in $color-palette {
+      [class-glyph~="glow\(#{$glyph-glow-blur-radius-index}:#{$color_name}\)"],
+      [class-glyph~="glow\(#{$glyph-glow-blur-radius-index}:#{$color_name}\):hover"]:hover,
+      [class-glyph~="glow\(#{$glyph-glow-blur-radius-index}:#{$color_name}\):focus"]:focus,
+      [class-glyph~="glow\(#{$glyph-glow-blur-radius-index}:#{$color_name}\):active"]:active {
+        @include glyph-glow($glyph-glow-blur-radius $color_value);
+      }
+    }
+  }
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* glyph: shadow */
+/*------------------------------------------------------------------------------------------------*/
+
+@mixin glyph-shadow($parameters) {
+  // $parameters: h-shadow v-shadow blur-radius color
+
+  text-shadow: $parameters;
+}
+
+@if($include-glyph-shadow)
+{
+  @each $glyph-shadow-h-index in $glyph-shadow-h-indexes {
+    $glyph-shadow-h: $glyph-shadow-h-index*$glyph-shadow-h-unit;
+    @each $glyph-shadow-v-index in $glyph-shadow-v-indexes {
+      $glyph-shadow-v: $glyph-shadow-v-index*$glyph-shadow-v-unit;
+      @each $glyph-shadow-blur-radius-index in $glyph-shadow-blur-radius-indexes {
+        $glyph-shadow-blur-radius: $glyph-shadow-blur-radius-index*$glyph-shadow-blur-radius-unit;
+
+        [class-glyph~="shadow\(#{$glyph-shadow-v-index}:#{$glyph-shadow-h-index}:#{$glyph-shadow-blur-radius-index}\)"] {
+          @include glyph-shadow($glyph-shadow-h $glyph-shadow-v $glyph-shadow-blur-radius);
+        }
+        $glyph-shadow-colors: (
+          /* Black-White */
+                'Black': map-get($color-palette, 'Black'),
+                'White': map-get($color-palette, 'White'),
+                'LightGray': map-get($color-palette, 'LightGray'),
+                'Gray': map-get($color-palette, 'Gray'),
+                'DarkGray': map-get($color-palette, 'DarkGray')
+        );
+        @each $color_name, $color_value in $glyph-shadow-colors {
+          [class-glyph~="shadow\(#{$glyph-shadow-v-index}:#{$glyph-shadow-h-index}:#{$glyph-shadow-blur-radius-index}:#{$color_name}\)"] {
+            @include glyph-shadow($glyph-shadow-h $glyph-shadow-v $glyph-shadow-blur-radius $color_value);
+          }
+        }
+      }
+    }
+  }
+}
+
+

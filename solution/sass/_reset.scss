@@ -1,0 +1,106 @@
+﻿/*------------------------------------------------------------------------------------------------*/
+/* reserved class names */
+/*------------------------------------------------------------------------------------------------*/
+
+/*
+    disabled
+    readonly
+    selected
+    active
+    checked
+    hidden
+    form
+    */
+
+/*------------------------------------------------------------------------------------------------*/
+/* * */
+/*------------------------------------------------------------------------------------------------*/
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+
+  margin: 0 0 0 0;
+  border: none;
+  outline: none;
+  padding: 0 0 0 0;
+  background-color: transparent;
+  color: inherit;
+  font: inherit;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* tags */
+/*------------------------------------------------------------------------------------------------*/
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+}
+
+iframe {
+}
+
+div {
+  position: relative;
+  direction: ltr;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td {
+  direction: ltr;
+  text-align: left;
+}
+
+a {
+  text-decoration: none;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+img {
+  vertical-align: middle;
+  border: none;
+}
+
+b {
+  font-weight: bold;
+}
+
+i {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+script {
+  display: none;
+}
+
+style {
+  display: none;
+}
+
+
+
+

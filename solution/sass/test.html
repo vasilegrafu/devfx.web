@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sass</title>
+    <link rel="stylesheet" type="text/css" href="bundle.css">
+</head>
+<body>
+    <div class-box="hstack">
+        <div class-box="size(10) transition(25) corner-radius(8) padding(16) shadow(2:2:2:Black)"
+             class-background="Blue Red:hover">
+            X
+        </div>
+        <div class-box="size(10)"
+             class-background="Blue darken(50)">
+            X
+        </div>
+        <div class-box="size(10)"
+             class-background="Blue lighten(50):hover">
+            X
+        </div>
+        <div class-box="size(10)"
+             class-background="Blue lighten-to_top(50):hover lighten-to_bottom(50):active">
+            X
+        </div>
+    </div>
+    <div class-box="hstack">
+        <div class-box="size(10)"
+             class-background="Blue">
+            X
+        </div>
+        <div class-box="250% size(20)"
+             class-background="Blue">
+            X
+        </div>
+        <div class-box="size(10) lighten(50) lighten(0):hover"
+             class-background="Blue">
+            X
+        </div>
+        <div class-box="size(10) lighten(50):hover"
+             class-background="Blue">
+            X
+        </div>
+    </div>
+    <div class-box="hstack max-size-x(80)">
+        <div class-box="size-x(75%) min-size-x(60) to(x+)"
+             class-border="Blue"
+             class-background="Green"
+             class-glyph="Blue Red:hover bold italic">
+            XXXXXXXX
+        </div><!--
+        --><div class-box="size-x(25%) min-size-x(20) to(x+)"
+                class-border="Blue"
+                class-background="White"
+                class-glyph="250% White Red:hover bold italic glow(1:Black)">
+            XXXXXXXX
+        </div><!--
+        --><div class-box="size-x(25%) min-size-x(20) to(x+) padding(32)-y glow(8:Blue):hover transition(25)"
+                class-border="Blue"
+                class-background="White"
+                class-glyph="250% Blue Red:hover bold italic shadow(1:1:0:Black)">
+        XXXXXXXX
+    </div>
+    </div>
+
+    <br/>
+    <br/>
+
+    <div>
+        <div class-media="show-gt(80)">
+            -gt80
+        </div>
+        <div class-media="show-lteq(80) show-gt(40)">
+            -lteq80 -gt40
+        </div>
+        <div class-media="show-lteq(40)">
+            -lteq40
+        </div>
+    </div>
+
+    <div>
+        <div class-box="250%"
+             class-glyph="italic sans-serif">
+            XXXXX
+        </div>
+    </div>
+
+    <script id="__bs_script__">
+        //<![CDATA[
+            document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.24.4'><\/script>".replace("HOST", location.hostname));
+        //]]>
+    </script>
+
+</body>
+</html>
