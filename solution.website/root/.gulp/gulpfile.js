@@ -7,21 +7,12 @@ var gulp_rename = require('gulp-rename');
 var browser_sync = require('browser-sync').create();
 
 //
-gulp.task('transpile:./../fx/devfx/sass/bundle.scss', function () {
-    return gulp.src('./../fx/devfx/sass/bundle.scss', { allowEmpty: true })
+gulp.task('transpile:./../devfx/styles/bundle.scss', function () {
+    return gulp.src('./../devfx/styles/bundle.scss', { allowEmpty: true })
         .pipe(gulp_sass().on('error', gulp_sass.logError))
         .pipe(gulp_sourcemaps.init())
         .pipe(gulp_sourcemaps.write(''))
-        .pipe(gulp.dest('./../fx/devfx/sass/'));
-});
-
-//
-gulp.task('transpile:./../sass/bundle.scss', function () {
-    return gulp.src('./../sass/bundle.scss', { allowEmpty: true })
-        .pipe(gulp_sourcemaps.init())
-        .pipe(gulp_sass().on('error', gulp_sass.logError))
-        .pipe(gulp_sourcemaps.write(''))
-        .pipe(gulp.dest('./../sass/'));
+        .pipe(gulp.dest('./../devfx/styles/'));
 });
 
 //
@@ -36,18 +27,14 @@ gulp.task('reload:browser_sync', function(done) {
 
 //
 gulp.task('watch', function (done) {
-    gulp.watch(['./../fx/devfx/sass/*.scss'], gulp.series('transpile:./../fx/devfx/sass/bundle.scss', 'reload:browser_sync'));
-    gulp.watch(['./../fx/devfx/sass/*.html'], gulp.series('reload:browser_sync'));
-
-    gulp.watch(['./../fx/devfx/sass/*.scss', './../sass/*.scss'], gulp.series('transpile:./../sass/bundle.scss', 'reload:browser_sync'));
-    gulp.watch(                             ['./../sass/*.html'], gulp.series('reload:browser_sync'));
-
+    gulp.watch(['./../devfx/styles/*.scss'], gulp.series('transpile:./../devfx/styles/bundle.scss', 'reload:browser_sync'));
+    gulp.watch(['./../styles/*.scss'], gulp.series('reload:browser_sync'));
+    gulp.watch(['./../*.html'], gulp.series('reload:browser_sync'));
     done();
 });
 
 //
-gulp.task('default', gulp.series('transpile:./../fx/devfx/sass/bundle.scss',
-                                 'transpile:./../sass/bundle.scss',
+gulp.task('default', gulp.series('transpile:./../devfx/styles/bundle.scss',
                                  gulp.series('init:browser_sync', 'reload:browser_sync'),
                                  'watch'));
 
