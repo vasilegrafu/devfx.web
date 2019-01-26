@@ -93,6 +93,25 @@ em {
   font-style: italic;
 }
 
+P {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+$h_size: 1.0rem;
+$h_i: 0;
+@while($h_i <= 5) { 
+  h#{6 - $h_i} {
+    font-weight: bold;
+    font-size: $h_size;
+    padding-top: 0.25*$h_size;
+    padding-bottom: 0.25*$h_size;
+  }
+  
+  $h_size: $h_size*1.25;
+  $h_i: $h_i + 1; 
+}
+
 script {
   display: none;
 }

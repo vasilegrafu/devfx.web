@@ -105,6 +105,46 @@ strong {
 em {
   font-style: italic; }
 
+P {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem; }
+
+h6 {
+  font-weight: bold;
+  font-size: 1rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem; }
+
+h5 {
+  font-weight: bold;
+  font-size: 1.25rem;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem; }
+
+h4 {
+  font-weight: bold;
+  font-size: 1.5625rem;
+  padding-top: 0.39063rem;
+  padding-bottom: 0.39063rem; }
+
+h3 {
+  font-weight: bold;
+  font-size: 1.95313rem;
+  padding-top: 0.48828rem;
+  padding-bottom: 0.48828rem; }
+
+h2 {
+  font-weight: bold;
+  font-size: 2.44141rem;
+  padding-top: 0.61035rem;
+  padding-bottom: 0.61035rem; }
+
+h1 {
+  font-weight: bold;
+  font-size: 3.05176rem;
+  padding-top: 0.76294rem;
+  padding-bottom: 0.76294rem; }
+
 script {
   display: none; }
 
