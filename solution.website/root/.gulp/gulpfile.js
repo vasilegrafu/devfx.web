@@ -7,8 +7,8 @@ var gulp_rename = require('gulp-rename');
 var browser_sync = require('browser-sync').create();
 
 //
-gulp.task('transpile:./../webclient/devfx/styles/bundle.scss', function () {
-    return gulp.src('./../webclient/devfx/styles/bundle.scss', { allowEmpty: true })
+gulp.task('transpile:./../webclient/devfx/styles/devfx.scss', function () {
+    return gulp.src('./../webclient/devfx/styles/devfx.scss', { allowEmpty: true })
         .pipe(gulp_sass().on('error', gulp_sass.logError))
         .pipe(gulp_sourcemaps.init())
         .pipe(gulp_sourcemaps.write(''))
@@ -27,7 +27,7 @@ gulp.task('reload:browser_sync', function(done) {
 
 //
 gulp.task('watch', function (done) {
-    gulp.watch(['./../webclient/devfx/styles/*.scss'], gulp.series('transpile:./../webclient/devfx/styles/bundle.scss', 'reload:browser_sync'));
+    gulp.watch(['./../webclient/devfx/styles/*.scss'], gulp.series('transpile:./../webclient/devfx/styles/devfx.scss', 'reload:browser_sync'));
     gulp.watch(['./../webclient/styles/*.scss'], gulp.series('reload:browser_sync'));
 
     gulp.watch(['./../*.html'], gulp.series('reload:browser_sync'));
@@ -36,7 +36,7 @@ gulp.task('watch', function (done) {
 });
 
 //
-gulp.task('default', gulp.series('transpile:./../webclient/devfx/styles/bundle.scss',
+gulp.task('default', gulp.series('transpile:./../webclient/devfx/styles/devfx.scss',
                                  gulp.series('init:browser_sync', 'reload:browser_sync'),
                                  'watch'));
 
