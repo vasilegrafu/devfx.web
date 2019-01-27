@@ -42,11 +42,9 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-}
+body { }
 
-iframe {
-}
+iframe { }
 
 div {
   position: relative;
@@ -74,7 +72,6 @@ ol, ul {
 
 img {
   vertical-align: middle;
-  border: none;
 }
 
 b {
@@ -111,6 +108,7 @@ $h_i: 0;
   $h_size: $h_size*1.25;
   $h_i: $h_i + 1; 
 }
+
 
 script {
   display: none;
