@@ -166,6 +166,10 @@ $color-palette: (
 @function color-palette-merge($color-palette, $color-name, $color) {
       $color-palette: map-merge($color-palette, ('#{$color-name}': $color));
 
+      $color-palette: map-merge($color-palette, ('#{$color-name}-lighten(8)': lighten($color, 64)));
+      $color-palette: map-merge($color-palette, ('#{$color-name}-lighten(7)': lighten($color, 56)));
+      $color-palette: map-merge($color-palette, ('#{$color-name}-lighten(6)': lighten($color, 48)));
+      $color-palette: map-merge($color-palette, ('#{$color-name}-lighten(5)': lighten($color, 40)));
       $color-palette: map-merge($color-palette, ('#{$color-name}-lighten(4)': lighten($color, 32)));
       $color-palette: map-merge($color-palette, ('#{$color-name}-lighten(3)': lighten($color, 24)));
       $color-palette: map-merge($color-palette, ('#{$color-name}-lighten(2)': lighten($color, 16)));
@@ -174,15 +178,27 @@ $color-palette: (
       $color-palette: map-merge($color-palette, ('#{$color-name}-darken(2)': darken($color, 16)));
       $color-palette: map-merge($color-palette, ('#{$color-name}-darken(3)': darken($color, 24)));
       $color-palette: map-merge($color-palette, ('#{$color-name}-darken(4)': darken($color, 32)));
-    
-      $color-palette: map-merge($color-palette, ('#{$color-name}-saturate(4)': saturate($color, 64)));
-      $color-palette: map-merge($color-palette, ('#{$color-name}-saturate(3)': saturate($color, 48)));
-      $color-palette: map-merge($color-palette, ('#{$color-name}-saturate(2)': saturate($color, 32)));
-      $color-palette: map-merge($color-palette, ('#{$color-name}-saturate(1)': saturate($color, 16)));
-      $color-palette: map-merge($color-palette, ('#{$color-name}-desaturate(1)': desaturate($color, 16)));
-      $color-palette: map-merge($color-palette, ('#{$color-name}-desaturate(2)': desaturate($color, 32)));
-      $color-palette: map-merge($color-palette, ('#{$color-name}-desaturate(3)': desaturate($color, 48)));
-      $color-palette: map-merge($color-palette, ('#{$color-name}-desaturate(4)': desaturate($color, 64)));
+      $color-palette: map-merge($color-palette, ('#{$color-name}-darken(5)': darken($color, 40)));
+      $color-palette: map-merge($color-palette, ('#{$color-name}-darken(6)': darken($color, 48)));
+      $color-palette: map-merge($color-palette, ('#{$color-name}-darken(7)': darken($color, 56)));
+      $color-palette: map-merge($color-palette, ('#{$color-name}-darken(8)': darken($color, 64)));
+
+      $color-palette: map-merge($color-palette, ('#{$color-name}-saturate(8)': saturate($color, 64)));
+      $color-palette: map-merge($color-palette, ('#{$color-name}-saturate(7)': saturate($color, 56)));
+      $color-palette: map-merge($color-palette, ('#{$color-name}-saturate(6)': saturate($color, 48)));
+      $color-palette: map-merge($color-palette, ('#{$color-name}-saturate(5)': saturate($color, 40)));
+      $color-palette: map-merge($color-palette, ('#{$color-name}-saturate(4)': saturate($color, 32)));
+      $color-palette: map-merge($color-palette, ('#{$color-name}-saturate(3)': saturate($color, 24)));
+      $color-palette: map-merge($color-palette, ('#{$color-name}-saturate(2)': saturate($color, 16)));
+      $color-palette: map-merge($color-palette, ('#{$color-name}-saturate(1)': saturate($color, 8)));
+      $color-palette: map-merge($color-palette, ('#{$color-name}-desaturate(1)': desaturate($color, 8)));
+      $color-palette: map-merge($color-palette, ('#{$color-name}-desaturate(2)': desaturate($color, 16)));
+      $color-palette: map-merge($color-palette, ('#{$color-name}-desaturate(3)': desaturate($color, 24)));
+      $color-palette: map-merge($color-palette, ('#{$color-name}-desaturate(4)': desaturate($color, 32)));
+      $color-palette: map-merge($color-palette, ('#{$color-name}-desaturate(5)': desaturate($color, 40)));
+      $color-palette: map-merge($color-palette, ('#{$color-name}-desaturate(6)': desaturate($color, 48)));
+      $color-palette: map-merge($color-palette, ('#{$color-name}-desaturate(7)': desaturate($color, 56)));
+      $color-palette: map-merge($color-palette, ('#{$color-name}-desaturate(8)': desaturate($color, 64)));
     
       $color-palette: map-merge($color-palette, ('#{$color-name}-alpha(0)': rgba($color, 0.0)));
       $color-palette: map-merge($color-palette, ('#{$color-name}-alpha(1)': rgba($color, 0.1)));

@@ -129,6 +129,14 @@ $value: 100;
     [class-glyph~="glow\(#{$glyph-glow-blur-radius-index}\):active"]:active {
       @include glyph-glow($glyph-glow-blur-radius);
     }
+  }
+}
+
+@if($include-glyph-glow-with-other-color)
+{
+  @each $glyph-glow-blur-radius-index in $glyph-glow-blur-radius-indexes {
+    $glyph-glow-blur-radius: $glyph-glow-blur-radius-index*$glyph-glow-blur-radius-unit;
+
     @each $color_name, $color_value in $color-palette {
       [class-glyph~="glow\(#{$glyph-glow-blur-radius-index}:#{$color_name}\)"],
       [class-glyph~="glow\(#{$glyph-glow-blur-radius-index}:#{$color_name}\):hover"]:hover,

@@ -1329,6 +1329,13 @@ $value: 0;
     [class-box~="glow\(#{$box-glow-blur-radius-index}\):active"]:active {
       @include box-glow($box-glow-blur-radius);
     }
+  }
+}
+@if($include-box-glow-with-other-color)
+{
+  @each $box-glow-blur-radius-index in $box-glow-blur-radius-indexes {
+    $box-glow-blur-radius: $box-glow-blur-radius-index*$box-glow-blur-radius-unit;
+
     @each $color_name, $color_value in $color-palette {
       [class-box~="glow\(#{$box-glow-blur-radius-index}:#{$color_name}\)"],
       [class-box~="glow\(#{$box-glow-blur-radius-index}:#{$color_name}\):hover"]:hover,
@@ -1339,7 +1346,6 @@ $value: 0;
     }
   }
 }
-
 
 /*------------------------------------------------------------------------------------------------*/
 /* box: shadow */
