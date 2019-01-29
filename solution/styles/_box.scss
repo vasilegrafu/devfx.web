@@ -7,7 +7,7 @@
 
 
 /*------------------------------------------------------------------------------------------------*/
-/* z-index */
+/* box: z-index */
 /*------------------------------------------------------------------------------------------------*/
 
 @each $i in (-8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8) {
@@ -18,17 +18,17 @@
 
 
 /*------------------------------------------------------------------------------------------------*/
-/* visibility */
+/* box: visibility */
 /*------------------------------------------------------------------------------------------------*/
 
-[class-box~="hidden_"] > *{
+[class-box~="hidden_"] > * {
   visibility: hidden;
 }
 [class-box~="hidden"] {
   visibility: hidden;
 }
 
-[class-box~="visible_"] > *{
+[class-box~="visible_"] > * {
   visibility: visible;
 }
 [class-box~="visible"] {
@@ -37,7 +37,7 @@
 
 
 /*------------------------------------------------------------------------------------------------*/
-/* display: none */
+/* box: display */
 /*------------------------------------------------------------------------------------------------*/
 
 [class-box~="none_"] > * {
@@ -49,7 +49,7 @@
 
 
 /*------------------------------------------------------------------------------------------------*/
-/* display: block */
+/* box: block */
 /*------------------------------------------------------------------------------------------------*/
 
 [class-box~="block_"] > * {
@@ -70,12 +70,12 @@
   margin-right: auto;
 }
 
-[class-box~="block-center_"] > * {
+[class-box~="block-right_"] > * {
   display: block;
   margin-left: auto;
   margin-right: 0;
 }
-[class-box~="block-center"] {
+[class-box~="block-right"] {
   display: block;
   margin-left: auto;
   margin-right: 0;
@@ -94,7 +94,7 @@
 
 
 /*------------------------------------------------------------------------------------------------*/
-/* display: brick */
+/* box: brick */
 /*------------------------------------------------------------------------------------------------*/
 
 [class-box~="brick_"] > * {
@@ -133,518 +133,7 @@
 
 
 /*------------------------------------------------------------------------------------------------*/
-/* overflow */
-/*------------------------------------------------------------------------------------------------*/
-
-[class-box~="overflow\(auto\)"] {
-  overflow: auto;
-}
-
-[class-box~="overflow\(scroll\)"] {
-  overflow: scroll;
-}
-
-[class-box~="overflow\(hidden\)"] {
-  overflow: hidden;
-}
-
-[class-box~="overflow\(visible\)"] {
-  overflow: visible;
-}
-
-/*----------------------------------------------------------------*/
-
-[class-box~="overflow-x\(auto\)"] {
-  overflow-x: auto;
-}
-
-[class-box~="overflow-x\(scroll\)"] {
-  overflow-x: scroll;
-}
-
-[class-box~="overflow-x\(hidden\)"] {
-  overflow-x: hidden;
-}
-
-[class-box~="overflow-x\(visible\)"] {
-  overflow-x: visible;
-}
-
-/*----------------------------------------------------------------*/
-
-[class-box~="overflow-y\(auto\)"] {
-  overflow-y: auto;
-}
-
-[class-box~="overflow-y\(scroll\)"] {
-  overflow-y: scroll;
-}
-
-[class-box~="overflow-y\(hidden\)"] {
-  overflow-y: hidden;
-}
-
-[class-box~="overflow-y\(visible\)"] {
-  overflow-y: visible;
-}
-
-/*----------------------------------------------------------------*/
-
-[class-box~="stretch-x_"] > * {
-  position: absolute;
-  left: 0;
-  right: 0;
-}
-[class-box~="stretch-x"] {
-  position: absolute;
-  left: 0;
-  right: 0;
-}
-
-[class-box~="stretch-y_"] > * {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-}
-[class-box~="stretch-y"] {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-}
-
-[class-box~="stretch_"] > * {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-[class-box~="stretch"] {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-
-/*------------------------------------------------------------------------------------------------*/
-/* size-x
-/*------------------------------------------------------------------------------------------------*/
-
-@mixin generate_classes-size-x_($size-x) {
-  [class-box~="size-x\(#{$size-x}\)_"] > * {
-    width: $size-x*$rem;
-  }
-  [class-box~="min-size-x\(#{$size-x}\)_"] > * {
-    min-width: $size-x*$rem;
-  }
-  [class-box~="max-size-x\(#{$size-x}\)_"] > * {
-    max-width: $size-x*$rem;
-  }
-}
-$size-x: 0;
-@while($size-x <= 32) { @include generate_classes-size-x_($size-x);  $size-x: $size-x + 1; }
-$size-x: (32 + 2);
-@while($size-x <= 64) { @include generate_classes-size-x_($size-x);  $size-x: $size-x + 2; }
-$size-x: (64 + 4);
-@while($size-x <= 128) { @include generate_classes-size-x_($size-x);  $size-x: $size-x + 4; }
-$size-x: (128 + 8);
-@while($size-x <= 256) { @include generate_classes-size-x_($size-x);  $size-x: $size-x + 8; }
-$size-x: (256 + 16);
-@while($size-x <= 512) { @include generate_classes-size-x_($size-x);  $size-x: $size-x + 16; }
-
-@mixin generate_classes-size-x_($size-x) {
-  [class-box~="size-x\(#{$size-x}\%\)_"] > * {
-    width: $size-x + 0.0%;
-  }
-}
-$size-x: 0;
-@while($size-x <= 100) { @include generate_classes-size-x_($size-x);  $size-x: $size-x + 1; }
-
-/*----------------------------------------------------------------*/
-
-@mixin generate_classes-size-x($size-x) {
-  [class-box~="size-x\(#{$size-x}\)"] {
-    width: $size-x*$rem;
-  }
-  [class-box~="min-size-x\(#{$size-x}\)"] {
-    min-width: $size-x*$rem;
-  }
-  [class-box~="max-size-x\(#{$size-x}\)"] {
-    max-width: $size-x*$rem;
-  }
-}
-$size-x: 0;
-@while($size-x <= 32) { @include generate_classes-size-x($size-x);  $size-x: $size-x + 1; }
-$size-x: (32 + 2);
-@while($size-x <= 64) { @include generate_classes-size-x($size-x);  $size-x: $size-x + 2; }
-$size-x: (64 + 4);
-@while($size-x <= 128) { @include generate_classes-size-x($size-x);  $size-x: $size-x + 4; }
-$size-x: (128 + 8);
-@while($size-x <= 256) { @include generate_classes-size-x($size-x);  $size-x: $size-x + 8; }
-$size-x: (256 + 16);
-@while($size-x <= 512) { @include generate_classes-size-x($size-x);  $size-x: $size-x + 16; }
-
-@mixin generate_classes-size-x($size-x) {
-  [class-box~="size-x\(#{$size-x}\%\)"] {
-    width: $size-x + 0.0%;
-  }
-}
-$size-x: 0;
-@while($size-x <= 100) { @include generate_classes-size-x($size-x);  $size-x: $size-x + 1; }
-
-/*----------------------------------------------------------------*/
-
-[class-box~="size-x\(auto\)_"] > * {
-  width: auto;
-}
-
-[class-box~="size-x\(auto\)"] {
-  width: auto;
-}
-
-/*----------------------------------------------------------------*/
-
-[class-box~="size-x\(max\)_"] > * {
-  width: 100%;
-}
-
-[class-box~="size-x\(max\)"] {
-  width: 100%;
-}
-
-
-/*------------------------------------------------------------------------------------------------*/
-/* size-y
-/*------------------------------------------------------------------------------------------------*/
-
-@mixin generate_classes-size-y_($size-y) {
-  [class-box~="size-y\(#{$size-y}\)_"] > * {
-    height: $size-y*$rem;
-  }
-  [class-box~="min-size-y\(#{$size-y}\)_"] > * {
-    min-height: $size-y*$rem;
-  }
-  [class-box~="max-size-y\(#{$size-y}\)_"] > * {
-    max-height: $size-y*$rem;
-  }
-}
-$size-y: 0;
-@while($size-y <= 32) { @include generate_classes-size-y_($size-y);  $size-y: $size-y + 1; }
-$size-y: (32 + 2);
-@while($size-y <= 64) { @include generate_classes-size-y_($size-y);  $size-y: $size-y + 2; }
-$size-y: (64 + 4);
-@while($size-y <= 128) { @include generate_classes-size-y_($size-y);  $size-y: $size-y + 4; }
-$size-y: (128 + 8);
-@while($size-y <= 256) { @include generate_classes-size-y_($size-y);  $size-y: $size-y + 8; }
-$size-y: (256 + 16);
-@while($size-y <= 512) { @include generate_classes-size-y_($size-y);  $size-y: $size-y + 16; }
-
-@mixin generate_classes-size-y_($size-y) {
-  [class-box~="size-y\(#{$size-y}\%\)_"] > * {
-    height: $size-y + 0.0%;
-  }
-}
-$size-y: 0;
-@while($size-y <= 100) { @include generate_classes-size-y_($size-y);  $size-y: $size-y + 1; }
-
-/*----------------------------------------------------------------*/
-
-@mixin generate_classes-size-y($size-y) {
-  [class-box~="size-y\(#{$size-y}\)"] {
-    height: $size-y*$rem;
-  }
-  [class-box~="min-size-y\(#{$size-y}\)"] {
-    min-height: $size-y*$rem;
-  }
-  [class-box~="max-size-y\(#{$size-y}\)"] {
-    max-height: $size-y*$rem;
-  }
-}
-$size-y: 0;
-@while($size-y <= 32) { @include generate_classes-size-y($size-y);  $size-y: $size-y + 1; }
-$size-y: (32 + 2);
-@while($size-y <= 64) { @include generate_classes-size-y($size-y);  $size-y: $size-y + 2; }
-$size-y: (64 + 4);
-@while($size-y <= 128) { @include generate_classes-size-y($size-y);  $size-y: $size-y + 4; }
-$size-y: (128 + 8);
-@while($size-y <= 256) { @include generate_classes-size-y($size-y);  $size-y: $size-y + 8; }
-$size-y: (256 + 16);
-@while($size-y <= 512) { @include generate_classes-size-y($size-y);  $size-y: $size-y + 16; }
-
-@mixin generate_classes-size-y($size-y) {
-  [class-box~="size-y\(#{$size-y}\%\)"] {
-    height: $size-y + 0.0%;
-  }
-}
-$size-y: 0;
-@while($size-y <= 100) { @include generate_classes-size-y($size-y);  $size-y: $size-y + 1; }
-
-/*----------------------------------------------------------------*/
-
-[class-box~="size-y\(auto\)_ "]> * {
-  height: auto;
-}
-
-[class-box~="size-y\(auto\)"] {
-  height: auto;
-}
-
-/*----------------------------------------------------------------*/
-
-[class-box~="size-y\(max\)_"] > * {
-  height: 100%;
-}
-
-[class-box~="size-y\(max\)"] {
-  height: 100%;
-}
-
-
-/*------------------------------------------------------------------------------------------------*/
-/* size
-/*------------------------------------------------------------------------------------------------*/
-
-@mixin generate_classes-size_($size) {
-  [class-box~="size\(#{$size}\)_"] > * {
-    width: $size*$rem;
-    height: $size*$rem;
-  }
-  [class-box~="min-size\(#{$size}\)_"] > * {
-    min-width: $size*$rem;
-    min-height: $size*$rem;
-  }
-  [class-box~="max-size\(#{$size}\)_"] > * {
-    max-width: $size*$rem;
-    max-height: $size*$rem;
-  }
-}
-$size: 0;
-@while($size <= 32) { @include generate_classes-size_($size);  $size: $size + 1; }
-$size: (32 + 2);
-@while($size <= 64) { @include generate_classes-size_($size);  $size: $size + 2; }
-$size: (64 + 4);
-@while($size <= 128) { @include generate_classes-size_($size);  $size: $size + 4; }
-$size: (128 + 8);
-@while($size <= 256) { @include generate_classes-size_($size);  $size: $size + 8; }
-$size: (256 + 16);
-@while($size <= 512) { @include generate_classes-size_($size);  $size: $size + 16; }
-
-@mixin generate_classes-size_($size) {
-  [class-box~="size\(#{$size}\%\)_"] > * {
-    width: $size + 0.0%;
-    height: $size + 0.0%;
-  }
-}
-$size: 0;
-@while($size <= 100) { @include generate_classes-size_($size);  $size: $size + 1; }
-
-/*----------------------------------------------------------------*/
-
-@mixin generate_classes-size($size) {
-  [class-box~="size\(#{$size}\)"] {
-    width: $size*$rem;
-    height: $size*$rem;
-  }
-  [class-box~="min-size\(#{$size}\)"] {
-    min-width: $size*$rem;
-    min-height: $size*$rem;
-  }
-  [class-box~="max-size\(#{$size}\)"] {
-    max-width: $size*$rem;
-    max-height: $size*$rem;
-  }
-}
-$size: 0;
-@while($size <= 32) { @include generate_classes-size($size);  $size: $size + 1; }
-$size: (32 + 2);
-@while($size <= 64) { @include generate_classes-size($size);  $size: $size + 2; }
-$size: (64 + 4);
-@while($size <= 128) { @include generate_classes-size($size);  $size: $size + 4; }
-$size: (128 + 8);
-@while($size <= 256) { @include generate_classes-size($size);  $size: $size + 8; }
-$size: (256 + 16);
-@while($size <= 512) { @include generate_classes-size($size);  $size: $size + 16; }
-
-@mixin generate_classes-size($size) {
-  [class-box~="size\(#{$size}\%\)"] {
-    width: $size + 0.0%;
-    height: $size + 0.0%;
-  }
-}
-$size: 0;
-@while($size <= 100) { @include generate_classes-size($size);  $size: $size + 1; }
-
-/*----------------------------------------------------------------*/
-
-[class-box~="size\(auto\)_"] > * {
-  width: auto;
-  height: auto;
-}
-
-[class-box~="size\(auto\)"] {
-  width: auto;
-  height: auto;
-}
-
-/*----------------------------------------------------------------*/
-
-[class-box~="size\(max\)_"] > * {
-  width: 100%;
-  height: 100%;
-}
-
-[class-box~="size\(max\)"] {
-  width: 100%;
-  height: 100%;
-}
-
-
-/*------------------------------------------------------------------------------------------------*/
-/* margin */
-/*------------------------------------------------------------------------------------------------*/
-
-@mixin generate_margin_($box-margin-index) {
-  $box-margin: $box-margin-index*(1.0*$rempx);
-
-  [class-box~="margin\(#{$box-margin-index}\)_"] > * {
-    margin: $box-margin;
-  }
-  [class-box~="margin\(#{$box-margin-index}\)-x_"] > * {
-    margin-left: $box-margin;
-    margin-right: $box-margin;
-  }
-  [class-box~="margin\(#{$box-margin-index}\)-left_"] > * {
-    margin-left: $box-margin;
-  }
-  [class-box~="margin\(#{$box-margin-index}\)-right_"] > * {
-    margin-right: $box-margin;
-  }
-  [class-box~="margin\(#{$box-margin-index}\)-y_"] > * {
-    margin-top: $box-margin;
-    margin-bottom: $box-margin;
-  }
-  [class-box~="margin\(#{$box-margin-index}\)-top_"] > * {
-    margin-top: $box-margin;
-  }
-  [class-box~="margin\(#{$box-margin-index}\)-bottom_"] > * {
-    margin-bottom: $box-margin;
-  }
-}
-
-@each $box-margin-index in $box-margin-indexes {
-  @include generate_margin_($box-margin-index);
-}
-
-/*----------------------------------------------------------------*/
-
-@mixin generate_margin($box-margin-index) {
-  $box-margin: $box-margin-index*(1.0*$rempx);
-
-  [class-box~="margin\(#{$box-margin-index}\)"] {
-    margin: $box-margin;
-  }
-  [class-box~="margin\(#{$box-margin-index}\)-x"] {
-    margin-left: $box-margin;
-    margin-right: $box-margin;
-  }
-  [class-box~="margin\(#{$box-margin-index}\)-left"] {
-    margin-left: $box-margin;
-  }
-  [class-box~="margin\(#{$box-margin-index}\)-right"] {
-    margin-right: $box-margin;
-  }
-  [class-box~="margin\(#{$box-margin-index}\)-y"] {
-    margin-top: $box-margin;
-    margin-bottom: $box-margin;
-  }
-  [class-box~="margin\(#{$box-margin-index}\)-top"] {
-    margin-top: $box-margin;
-  }
-  [class-box~="margin\(#{$box-margin-index}\)-bottom"] {
-    margin-bottom: $box-margin;
-  }
-}
-
-@each $box-margin-index in $box-margin-indexes {
-  @include generate_margin($box-margin-index);
-}
-
-
-/*------------------------------------------------------------------------------------------------*/
-/* padding */
-/*------------------------------------------------------------------------------------------------*/
-
-@mixin generate_padding_($box-padding-index) {
-  $box-padding: $box-padding-index*(1.0*$rempx);
-
-  [class-box~="padding\(#{$box-padding-index}\)_"] > * {
-    padding: $box-padding;
-  }
-  [class-box~="padding\(#{$box-padding-index}\)-x_"] > * {
-    padding-left: $box-padding;
-    padding-right: $box-padding;
-  }
-  [class-box~="padding\(#{$box-padding-index}\)-left_"] > * {
-    padding-left: $box-padding;
-  }
-  [class-box~="padding\(#{$box-padding-index}\)-right_"] > * {
-    padding-right: $box-padding;
-  }
-  [class-box~="padding\(#{$box-padding-index}\)-y_"] > * {
-    padding-top: $box-padding;
-    padding-bottom: $box-padding;
-  }
-  [class-box~="padding\(#{$box-padding-index}\)-top_"] > * {
-    padding-top: $box-padding;
-  }
-  [class-box~="padding\(#{$box-padding-index}\)-bottom_"] > * {
-    padding-bottom: $box-padding;
-  }
-}
-
-@each $box-padding-index in $box-padding-indexes {
-  @include generate_padding_($box-padding-index);
-}
-
-/*----------------------------------------------------------------*/
-
-@mixin generate_padding($box-padding-index) {
-  $box-padding: $box-padding-index*(1.0*$rempx);
-
-  [class-box~="padding\(#{$box-padding-index}\)"] {
-    padding: $box-padding;
-  }
-  [class-box~="padding\(#{$box-padding-index}\)-x"] {
-    padding-left: $box-padding;
-    padding-right: $box-padding;
-  }
-  [class-box~="padding\(#{$box-padding-index}\)-left"] {
-    padding-left: $box-padding;
-  }
-  [class-box~="padding\(#{$box-padding-index}\)-right"] {
-    padding-right: $box-padding;
-  }
-  [class-box~="padding\(#{$box-padding-index}\)-y"] {
-    padding-top: $box-padding;
-    padding-bottom: $box-padding;
-  }
-  [class-box~="padding\(#{$box-padding-index}\)-top"] {
-    padding-top: $box-padding;
-  }
-  [class-box~="padding\(#{$box-padding-index}\)-bottom"] {
-    padding-bottom: $box-padding;
-  }
-}
-
-@each $box-padding-index in $box-padding-indexes {
-  @include generate_padding($box-padding-index);
-}
-
-
-/*------------------------------------------------------------------------------------------------*/
-/* align */
+/* box: to */
 /*------------------------------------------------------------------------------------------------*/
 
 [class-box~="to\(left\)_"] > * {
@@ -759,30 +248,142 @@ $size: 0;
 
 
 /*------------------------------------------------------------------------------------------------*/
-/* separator */
+/* box: overflow */
 /*------------------------------------------------------------------------------------------------*/
 
-$i: 1;
-@while($i <= 64) {
-  $value: $i*(1.0*$rempx);
+[class-box~="overflow\(auto\)_"] > * {
+  overflow: auto;
+}
+[class-box~="overflow\(auto\)"] {
+  overflow: auto;
+}
 
-  [class-box~="separator\(#{$i}\)-x"] {
-    display: inline-block;
-    width: $value;
-    height: 100%;
-  }
-  [class-box~="separator\(#{$i}\)-y"] {
-    display: block;
-    width: 100%;
-    height: $value;
-  }
+[class-box~="overflow\(scroll\)_"] > * {
+  overflow: scroll;
+}
+[class-box~="overflow\(scroll\)"] {
+  overflow: scroll;
+}
 
-  $i: $i + 1;
+[class-box~="overflow\(hidden\)_"] > * {
+  overflow: hidden;
+}
+[class-box~="overflow\(hidden\)"] {
+  overflow: hidden;
+}
+
+[class-box~="overflow\(visible\)_"] > * {
+  overflow: visible;
+}
+[class-box~="overflow\(visible\)"] {
+  overflow: visible;
+}
+
+/*----------------------------------------------------------------*/
+
+[class-box~="overflow-x\(auto\)_"] > * {
+  overflow-x: auto;
+}
+[class-box~="overflow-x\(auto\)"] {
+  overflow-x: auto;
+}
+
+[class-box~="overflow-x\(scroll\)_"] > * {
+  overflow-x: scroll;
+}
+[class-box~="overflow-x\(scroll\)"] {
+  overflow-x: scroll;
+}
+
+[class-box~="overflow-x\(hidden\)_"] > * {
+  overflow-x: hidden;
+}
+[class-box~="overflow-x\(hidden\)"] {
+  overflow-x: hidden;
+}
+
+[class-box~="overflow-x\(visible\)_"] > * {
+  overflow-x: visible;
+}
+[class-box~="overflow-x\(visible\)"] {
+  overflow-x: visible;
+}
+
+/*----------------------------------------------------------------*/
+
+[class-box~="overflow-y\(auto\)_"] > * {
+  overflow-y: auto;
+}
+[class-box~="overflow-y\(auto\)"] {
+  overflow-y: auto;
+}
+
+[class-box~="overflow-y\(scroll\)_"] > * {
+  overflow-y: scroll;
+}
+[class-box~="overflow-y\(scroll\)"] {
+  overflow-y: scroll;
+}
+
+[class-box~="overflow-y\(hidden\)_"] > * {
+  overflow-y: hidden;
+}
+[class-box~="overflow-y\(hidden\)"] {
+  overflow-y: hidden;
+}
+
+[class-box~="overflow-y\(visible\)_"] > * {
+  overflow-y: visible;
+}
+[class-box~="overflow-y\(visible\)"] {
+  overflow-y: visible;
 }
 
 
 /*------------------------------------------------------------------------------------------------*/
-/* wrapping */
+/* box: stretch */
+/*------------------------------------------------------------------------------------------------*/
+
+[class-box~="stretch-x_"] > * {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+[class-box~="stretch-x"] {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+[class-box~="stretch-y_"] > * {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+[class-box~="stretch-y"] {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+[class-box~="stretch_"] > * {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+[class-box~="stretch"] {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* box: wrap */
 /*------------------------------------------------------------------------------------------------*/
 
 [class-box~="wrap\(no\)_"] > * {
@@ -805,7 +406,445 @@ $i: 1;
 
 
 /*------------------------------------------------------------------------------------------------*/
-/* vstack */
+/* box: size-x
+/*------------------------------------------------------------------------------------------------*/
+
+@mixin generate_classes-size-x_($size-x) {
+  [class-box~="size-x\(#{$size-x}\)_"] > * {
+    width: $size-x*$rem;
+  }
+  [class-box~="min-size-x\(#{$size-x}\)_"] > * {
+    min-width: $size-x*$rem;
+  }
+  [class-box~="max-size-x\(#{$size-x}\)_"] > * {
+    max-width: $size-x*$rem;
+  }
+}
+$size-x: 0;
+@while($size-x <= 32) { @include generate_classes-size-x_($size-x);  $size-x: $size-x + 1; }
+$size-x: (32 + 2);
+@while($size-x <= 64) { @include generate_classes-size-x_($size-x);  $size-x: $size-x + 2; }
+$size-x: (64 + 4);
+@while($size-x <= 128) { @include generate_classes-size-x_($size-x);  $size-x: $size-x + 4; }
+$size-x: (128 + 8);
+@while($size-x <= 256) { @include generate_classes-size-x_($size-x);  $size-x: $size-x + 8; }
+$size-x: (256 + 16);
+@while($size-x <= 512) { @include generate_classes-size-x_($size-x);  $size-x: $size-x + 16; }
+
+@mixin generate_classes-size-x_($size-x) {
+  [class-box~="size-x\(#{$size-x}\%\)_"] > * {
+    width: $size-x + 0.0%;
+  }
+}
+$size-x: 0;
+@while($size-x <= 100) { @include generate_classes-size-x_($size-x);  $size-x: $size-x + 1; }
+
+/*----------------------------------------------------------------*/
+
+@mixin generate_classes-size-x($size-x) {
+  [class-box~="size-x\(#{$size-x}\)"] {
+    width: $size-x*$rem;
+  }
+  [class-box~="min-size-x\(#{$size-x}\)"] {
+    min-width: $size-x*$rem;
+  }
+  [class-box~="max-size-x\(#{$size-x}\)"] {
+    max-width: $size-x*$rem;
+  }
+}
+$size-x: 0;
+@while($size-x <= 32) { @include generate_classes-size-x($size-x);  $size-x: $size-x + 1; }
+$size-x: (32 + 2);
+@while($size-x <= 64) { @include generate_classes-size-x($size-x);  $size-x: $size-x + 2; }
+$size-x: (64 + 4);
+@while($size-x <= 128) { @include generate_classes-size-x($size-x);  $size-x: $size-x + 4; }
+$size-x: (128 + 8);
+@while($size-x <= 256) { @include generate_classes-size-x($size-x);  $size-x: $size-x + 8; }
+$size-x: (256 + 16);
+@while($size-x <= 512) { @include generate_classes-size-x($size-x);  $size-x: $size-x + 16; }
+
+@mixin generate_classes-size-x($size-x) {
+  [class-box~="size-x\(#{$size-x}\%\)"] {
+    width: $size-x + 0.0%;
+  }
+}
+$size-x: 0;
+@while($size-x <= 100) { @include generate_classes-size-x($size-x);  $size-x: $size-x + 1; }
+
+/*----------------------------------------------------------------*/
+
+[class-box~="size-x\(auto\)_"] > * {
+  width: auto;
+}
+
+[class-box~="size-x\(auto\)"] {
+  width: auto;
+}
+
+/*----------------------------------------------------------------*/
+
+[class-box~="size-x\(max\)_"] > * {
+  width: 100%;
+}
+
+[class-box~="size-x\(max\)"] {
+  width: 100%;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* box: size-y
+/*------------------------------------------------------------------------------------------------*/
+
+@mixin generate_classes-size-y_($size-y) {
+  [class-box~="size-y\(#{$size-y}\)_"] > * {
+    height: $size-y*$rem;
+  }
+  [class-box~="min-size-y\(#{$size-y}\)_"] > * {
+    min-height: $size-y*$rem;
+  }
+  [class-box~="max-size-y\(#{$size-y}\)_"] > * {
+    max-height: $size-y*$rem;
+  }
+}
+$size-y: 0;
+@while($size-y <= 32) { @include generate_classes-size-y_($size-y);  $size-y: $size-y + 1; }
+$size-y: (32 + 2);
+@while($size-y <= 64) { @include generate_classes-size-y_($size-y);  $size-y: $size-y + 2; }
+$size-y: (64 + 4);
+@while($size-y <= 128) { @include generate_classes-size-y_($size-y);  $size-y: $size-y + 4; }
+$size-y: (128 + 8);
+@while($size-y <= 256) { @include generate_classes-size-y_($size-y);  $size-y: $size-y + 8; }
+$size-y: (256 + 16);
+@while($size-y <= 512) { @include generate_classes-size-y_($size-y);  $size-y: $size-y + 16; }
+
+@mixin generate_classes-size-y_($size-y) {
+  [class-box~="size-y\(#{$size-y}\%\)_"] > * {
+    height: $size-y + 0.0%;
+  }
+}
+$size-y: 0;
+@while($size-y <= 100) { @include generate_classes-size-y_($size-y);  $size-y: $size-y + 1; }
+
+/*----------------------------------------------------------------*/
+
+@mixin generate_classes-size-y($size-y) {
+  [class-box~="size-y\(#{$size-y}\)"] {
+    height: $size-y*$rem;
+  }
+  [class-box~="min-size-y\(#{$size-y}\)"] {
+    min-height: $size-y*$rem;
+  }
+  [class-box~="max-size-y\(#{$size-y}\)"] {
+    max-height: $size-y*$rem;
+  }
+}
+$size-y: 0;
+@while($size-y <= 32) { @include generate_classes-size-y($size-y);  $size-y: $size-y + 1; }
+$size-y: (32 + 2);
+@while($size-y <= 64) { @include generate_classes-size-y($size-y);  $size-y: $size-y + 2; }
+$size-y: (64 + 4);
+@while($size-y <= 128) { @include generate_classes-size-y($size-y);  $size-y: $size-y + 4; }
+$size-y: (128 + 8);
+@while($size-y <= 256) { @include generate_classes-size-y($size-y);  $size-y: $size-y + 8; }
+$size-y: (256 + 16);
+@while($size-y <= 512) { @include generate_classes-size-y($size-y);  $size-y: $size-y + 16; }
+
+@mixin generate_classes-size-y($size-y) {
+  [class-box~="size-y\(#{$size-y}\%\)"] {
+    height: $size-y + 0.0%;
+  }
+}
+$size-y: 0;
+@while($size-y <= 100) { @include generate_classes-size-y($size-y);  $size-y: $size-y + 1; }
+
+/*----------------------------------------------------------------*/
+
+[class-box~="size-y\(auto\)_ "]> * {
+  height: auto;
+}
+
+[class-box~="size-y\(auto\)"] {
+  height: auto;
+}
+
+/*----------------------------------------------------------------*/
+
+[class-box~="size-y\(max\)_"] > * {
+  height: 100%;
+}
+
+[class-box~="size-y\(max\)"] {
+  height: 100%;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* box: size
+/*------------------------------------------------------------------------------------------------*/
+
+@mixin generate_classes-size_($size) {
+  [class-box~="size\(#{$size}\)_"] > * {
+    width: $size*$rem;
+    height: $size*$rem;
+  }
+  [class-box~="min-size\(#{$size}\)_"] > * {
+    min-width: $size*$rem;
+    min-height: $size*$rem;
+  }
+  [class-box~="max-size\(#{$size}\)_"] > * {
+    max-width: $size*$rem;
+    max-height: $size*$rem;
+  }
+}
+$size: 0;
+@while($size <= 32) { @include generate_classes-size_($size);  $size: $size + 1; }
+$size: (32 + 2);
+@while($size <= 64) { @include generate_classes-size_($size);  $size: $size + 2; }
+$size: (64 + 4);
+@while($size <= 128) { @include generate_classes-size_($size);  $size: $size + 4; }
+$size: (128 + 8);
+@while($size <= 256) { @include generate_classes-size_($size);  $size: $size + 8; }
+$size: (256 + 16);
+@while($size <= 512) { @include generate_classes-size_($size);  $size: $size + 16; }
+
+@mixin generate_classes-size_($size) {
+  [class-box~="size\(#{$size}\%\)_"] > * {
+    width: $size + 0.0%;
+    height: $size + 0.0%;
+  }
+}
+$size: 0;
+@while($size <= 100) { @include generate_classes-size_($size);  $size: $size + 1; }
+
+/*----------------------------------------------------------------*/
+
+@mixin generate_classes-size($size) {
+  [class-box~="size\(#{$size}\)"] {
+    width: $size*$rem;
+    height: $size*$rem;
+  }
+  [class-box~="min-size\(#{$size}\)"] {
+    min-width: $size*$rem;
+    min-height: $size*$rem;
+  }
+  [class-box~="max-size\(#{$size}\)"] {
+    max-width: $size*$rem;
+    max-height: $size*$rem;
+  }
+}
+$size: 0;
+@while($size <= 32) { @include generate_classes-size($size);  $size: $size + 1; }
+$size: (32 + 2);
+@while($size <= 64) { @include generate_classes-size($size);  $size: $size + 2; }
+$size: (64 + 4);
+@while($size <= 128) { @include generate_classes-size($size);  $size: $size + 4; }
+$size: (128 + 8);
+@while($size <= 256) { @include generate_classes-size($size);  $size: $size + 8; }
+$size: (256 + 16);
+@while($size <= 512) { @include generate_classes-size($size);  $size: $size + 16; }
+
+@mixin generate_classes-size($size) {
+  [class-box~="size\(#{$size}\%\)"] {
+    width: $size + 0.0%;
+    height: $size + 0.0%;
+  }
+}
+$size: 0;
+@while($size <= 100) { @include generate_classes-size($size);  $size: $size + 1; }
+
+/*----------------------------------------------------------------*/
+
+[class-box~="size\(auto\)_"] > * {
+  width: auto;
+  height: auto;
+}
+
+[class-box~="size\(auto\)"] {
+  width: auto;
+  height: auto;
+}
+
+/*----------------------------------------------------------------*/
+
+[class-box~="size\(max\)_"] > * {
+  width: 100%;
+  height: 100%;
+}
+
+[class-box~="size\(max\)"] {
+  width: 100%;
+  height: 100%;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* box: margin */
+/*------------------------------------------------------------------------------------------------*/
+
+@mixin generate_margin_($box-margin-index) {
+  $box-margin: $box-margin-index*(1.0*$rempx);
+
+  [class-box~="margin\(#{$box-margin-index}\)_"] > * {
+    margin: $box-margin;
+  }
+  [class-box~="margin\(#{$box-margin-index}\)-x_"] > * {
+    margin-left: $box-margin;
+    margin-right: $box-margin;
+  }
+  [class-box~="margin\(#{$box-margin-index}\)-left_"] > * {
+    margin-left: $box-margin;
+  }
+  [class-box~="margin\(#{$box-margin-index}\)-right_"] > * {
+    margin-right: $box-margin;
+  }
+  [class-box~="margin\(#{$box-margin-index}\)-y_"] > * {
+    margin-top: $box-margin;
+    margin-bottom: $box-margin;
+  }
+  [class-box~="margin\(#{$box-margin-index}\)-top_"] > * {
+    margin-top: $box-margin;
+  }
+  [class-box~="margin\(#{$box-margin-index}\)-bottom_"] > * {
+    margin-bottom: $box-margin;
+  }
+}
+
+@each $box-margin-index in $box-margin-indexes {
+  @include generate_margin_($box-margin-index);
+}
+
+/*----------------------------------------------------------------*/
+
+@mixin generate_margin($box-margin-index) {
+  $box-margin: $box-margin-index*(1.0*$rempx);
+
+  [class-box~="margin\(#{$box-margin-index}\)"] {
+    margin: $box-margin;
+  }
+  [class-box~="margin\(#{$box-margin-index}\)-x"] {
+    margin-left: $box-margin;
+    margin-right: $box-margin;
+  }
+  [class-box~="margin\(#{$box-margin-index}\)-left"] {
+    margin-left: $box-margin;
+  }
+  [class-box~="margin\(#{$box-margin-index}\)-right"] {
+    margin-right: $box-margin;
+  }
+  [class-box~="margin\(#{$box-margin-index}\)-y"] {
+    margin-top: $box-margin;
+    margin-bottom: $box-margin;
+  }
+  [class-box~="margin\(#{$box-margin-index}\)-top"] {
+    margin-top: $box-margin;
+  }
+  [class-box~="margin\(#{$box-margin-index}\)-bottom"] {
+    margin-bottom: $box-margin;
+  }
+}
+
+@each $box-margin-index in $box-margin-indexes {
+  @include generate_margin($box-margin-index);
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* box: padding */
+/*------------------------------------------------------------------------------------------------*/
+
+@mixin generate_padding_($box-padding-index) {
+  $box-padding: $box-padding-index*(1.0*$rempx);
+
+  [class-box~="padding\(#{$box-padding-index}\)_"] > * {
+    padding: $box-padding;
+  }
+  [class-box~="padding\(#{$box-padding-index}\)-x_"] > * {
+    padding-left: $box-padding;
+    padding-right: $box-padding;
+  }
+  [class-box~="padding\(#{$box-padding-index}\)-left_"] > * {
+    padding-left: $box-padding;
+  }
+  [class-box~="padding\(#{$box-padding-index}\)-right_"] > * {
+    padding-right: $box-padding;
+  }
+  [class-box~="padding\(#{$box-padding-index}\)-y_"] > * {
+    padding-top: $box-padding;
+    padding-bottom: $box-padding;
+  }
+  [class-box~="padding\(#{$box-padding-index}\)-top_"] > * {
+    padding-top: $box-padding;
+  }
+  [class-box~="padding\(#{$box-padding-index}\)-bottom_"] > * {
+    padding-bottom: $box-padding;
+  }
+}
+
+@each $box-padding-index in $box-padding-indexes {
+  @include generate_padding_($box-padding-index);
+}
+
+/*----------------------------------------------------------------*/
+
+@mixin generate_padding($box-padding-index) {
+  $box-padding: $box-padding-index*(1.0*$rempx);
+
+  [class-box~="padding\(#{$box-padding-index}\)"] {
+    padding: $box-padding;
+  }
+  [class-box~="padding\(#{$box-padding-index}\)-x"] {
+    padding-left: $box-padding;
+    padding-right: $box-padding;
+  }
+  [class-box~="padding\(#{$box-padding-index}\)-left"] {
+    padding-left: $box-padding;
+  }
+  [class-box~="padding\(#{$box-padding-index}\)-right"] {
+    padding-right: $box-padding;
+  }
+  [class-box~="padding\(#{$box-padding-index}\)-y"] {
+    padding-top: $box-padding;
+    padding-bottom: $box-padding;
+  }
+  [class-box~="padding\(#{$box-padding-index}\)-top"] {
+    padding-top: $box-padding;
+  }
+  [class-box~="padding\(#{$box-padding-index}\)-bottom"] {
+    padding-bottom: $box-padding;
+  }
+}
+
+@each $box-padding-index in $box-padding-indexes {
+  @include generate_padding($box-padding-index);
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* box: separator */
+/*------------------------------------------------------------------------------------------------*/
+
+$i: 1;
+@while($i <= 64) {
+  $value: $i*(1.0*$rempx);
+
+  [class-box~="separator\(#{$i}\)-x"] {
+    display: inline-block;
+    width: $value;
+    height: 100%;
+  }
+  [class-box~="separator\(#{$i}\)-y"] {
+    display: block;
+    width: 100%;
+    height: $value;
+  }
+
+  $i: $i + 1;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* box: vstack */
 /*------------------------------------------------------------------------------------------------*/
 
 [class-box~="vstack"] {
@@ -816,7 +855,7 @@ $i: 1;
 
 
 /*------------------------------------------------------------------------------------------------*/
-/* hstack */
+/* box: hstack */
 /*------------------------------------------------------------------------------------------------*/
 
 [class-box~="hstack"] {
@@ -828,7 +867,7 @@ $i: 1;
 
 
 /*------------------------------------------------------------------------------------------------*/
-/* matrix */
+/* box: matrix */
 /*------------------------------------------------------------------------------------------------*/
 
 [class-box~="matrix"] {
@@ -845,7 +884,7 @@ $i: 1;
 
 
 /*------------------------------------------------------------------------------------------------*/
-/* table-frame */
+/* box: table-frame */
 /*------------------------------------------------------------------------------------------------*/
 
 [class-box~="table-frame"] {
@@ -912,7 +951,7 @@ $i: 1;
 
 
 /*------------------------------------------------------------------------------------------------*/
-/* float-frame */
+/* box: float-frame */
 /*------------------------------------------------------------------------------------------------*/
 
 [class-box~="float-frame"] {
@@ -941,7 +980,7 @@ $i: 1;
 
 
 /*------------------------------------------------------------------------------------------------*/
-/* position-frame */
+/* box: position-frame */
 /*------------------------------------------------------------------------------------------------*/
 
 [class-box~="position-frame"] {
@@ -970,7 +1009,7 @@ $i: 1;
 
 
 /*------------------------------------------------------------------------------------------------*/
-/* dock-frame */
+/* box: dock-frame */
 /*------------------------------------------------------------------------------------------------*/
 
 [class-box~="dock-frame"] {
@@ -1007,7 +1046,7 @@ $i: 1;
 
 
 /*------------------------------------------------------------------------------------------------*/
-/* layers-frame */
+/* box: layers-frame */
 /*------------------------------------------------------------------------------------------------*/
 
 [class-box~="layers-frame"] {
@@ -1162,7 +1201,7 @@ $i: 1;
 
 
 /*------------------------------------------------------------------------------------------------*/
-/* line */
+/* box: line */
 /*------------------------------------------------------------------------------------------------*/
 
 [class-box~="line-x"] {
@@ -1258,7 +1297,7 @@ $i: 1;
 
 
 /*------------------------------------------------------------------------------------------------*/
-/* transition: */
+/* box: transition: */
 /*------------------------------------------------------------------------------------------------*/
 
 $value: 0;
@@ -1326,11 +1365,11 @@ $value: 0;
         }
         $box-shadow-colors: (
           /* Black-White */
-                'Black': map-get($color-palette, 'Black'),
-                'White': map-get($color-palette, 'White'),
-                'LightGray': map-get($color-palette, 'LightGray'),
-                'Gray': map-get($color-palette, 'Gray'),
-                'DarkGray': map-get($color-palette, 'DarkGray')
+          'Black': map-get($color-palette, 'Black'),
+          'White': map-get($color-palette, 'White'),
+          'LightGray': map-get($color-palette, 'LightGray'),
+          'Gray': map-get($color-palette, 'Gray'),
+          'DarkGray': map-get($color-palette, 'DarkGray')
         );
         @each $color_name, $color_value in $box-shadow-colors {
           [class-box~="shadow\(#{$box-shadow-v-index}:#{$box-shadow-h-index}:#{$box-shadow-blur-radius-index}:#{$color_name}\)"] {
