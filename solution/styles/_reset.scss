@@ -53,13 +53,22 @@ div {
 }
 
 table {
+  display: inline-block;
+  vertical-align: middle;
   border-collapse: collapse;
   border-spacing: 0;
 }
-
+thead {
+}
+tbody {
+}
+tfoot {
+}
+tr {
+}
+th {
+}
 td {
-  direction: ltr;
-  text-align: left;
 }
 
 a {
