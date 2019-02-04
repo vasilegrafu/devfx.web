@@ -244,35 +244,30 @@ style {
 [class-box~="block"] {
   display: block; }
 
-[class-box~="block-left_"] > * {
-  display: block;
+/*----------------------------------------------------------------*/
+[class-box~="left_"] > * {
   margin-left: 0;
   margin-right: auto; }
 
-[class-box~="block-left"] {
-  display: block;
+[class-box~="left"] {
   margin-left: 0;
   margin-right: auto; }
 
-[class-box~="block-right_"] > * {
-  display: block;
-  margin-left: auto;
-  margin-right: 0; }
-
-[class-box~="block-right"] {
-  display: block;
-  margin-left: auto;
-  margin-right: 0; }
-
-[class-box~="block-center_"] > * {
-  display: block;
+[class-box~="center_"] > * {
   margin-left: auto;
   margin-right: auto; }
 
-[class-box~="block-center"] {
-  display: block;
+[class-box~="center"] {
   margin-left: auto;
   margin-right: auto; }
+
+[class-box~="right_"] > * {
+  margin-left: auto;
+  margin-right: 0; }
+
+[class-box~="right"] {
+  margin-left: auto;
+  margin-right: 0; }
 
 /*------------------------------------------------------------------------------------------------*/
 /* box: brick */
@@ -283,93 +278,52 @@ style {
 [class-box~="brick"] {
   display: inline-block; }
 
-[class-box~="brick-top_"] > * {
-  display: inline-block;
-  vertical-align: top; }
-
-[class-box~="brick-top"] {
-  display: inline-block;
-  vertical-align: top; }
-
-[class-box~="brick-middle_"] > * {
-  display: inline-block;
-  vertical-align: middle; }
-
-[class-box~="brick-middle"] {
-  display: inline-block;
-  vertical-align: middle; }
-
-[class-box~="brick-bottom_"] > * {
-  display: inline-block;
-  vertical-align: bottom; }
-
-[class-box~="brick-bottom"] {
-  display: inline-block;
-  vertical-align: bottom; }
-
-/*------------------------------------------------------------------------------------------------*/
-/* box: to */
-/*------------------------------------------------------------------------------------------------*/
-[class-box~="to(left)_"] > * {
-  text-align: left; }
-
-[class-box~="to(left)"] {
-  text-align: left; }
-
-/*--------------------------------*/
-[class-box~="to(xcenter)_"] > *,
-[class-box~="to(x+)_"] > * {
-  text-align: center; }
-
-[class-box~="to(xcenter)"],
-[class-box~="to(x+)"] {
-  text-align: center; }
-
-/*--------------------------------*/
-[class-box~="to(right)_"] > * {
-  text-align: right; }
-
-[class-box~="to(right)"] {
-  text-align: right; }
-
 /*----------------------------------------------------------------*/
-[class-box~="to(top)_"] > * > * {
+[class-box~="top_"] > * {
   vertical-align: top; }
 
-[class-box~="to(top)"] > * {
+[class-box~="top"] {
   vertical-align: top; }
 
-/*--------------------------------*/
-[class-box~="to(ycenter)_"] > * > *,
-[class-box~="to(y+)_"] > * > * {
+[class-box~="middle_"] > * {
   vertical-align: middle; }
 
-[class-box~="to(ycenter)"] > *,
-[class-box~="to(y+)"] > * {
+[class-box~="middle"] {
   vertical-align: middle; }
 
-/*--------------------------------*/
-[class-box~="to(bottom)_"] > * > * {
+[class-box~="bottom_"] > * {
   vertical-align: bottom; }
 
-[class-box~="to(bottom)"] > * {
+[class-box~="bottom"] {
   vertical-align: bottom; }
 
 /*----------------------------------------------------------------*/
+[class-box~="to(left)_"] {
+  text-align: left; }
+
+[class-box~="to(xcenter)_"],
+[class-box~="to(x+)_"] {
+  text-align: center; }
+
+[class-box~="to(right)_"] {
+  text-align: right; }
+
+[class-box~="to(top)_"] > * {
+  vertical-align: top; }
+
+[class-box~="to(ycenter)_"] > *,
+[class-box~="to(y+)_"] > * {
+  vertical-align: middle; }
+
+[class-box~="to(bottom)_"] > * {
+  vertical-align: bottom; }
+
+[class-box~="to(center)_"],
+[class-box~="to(+)_"] {
+  text-align: center; }
+
 [class-box~="to(center)_"] > *,
 [class-box~="to(+)_"] > * {
-  text-align: center; }
-
-[class-box~="to(center)_"] > * > *,
-[class-box~="to(+)_"] > * > * {
-  vertical-align: middle; }
-
-[class-box~="to(center)"],
-[class-box~="to(+)"] {
-  text-align: center; }
-
-[class-box~="to(center)"] > *,
-[class-box~="to(+)"] > * {
   vertical-align: middle; }
 
 /*------------------------------------------------------------------------------------------------*/
