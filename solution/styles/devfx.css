@@ -358,14 +358,14 @@ style {
 
 [class-box~="bricks(+)(left)"] > * {
   display: inline-block;
-  vertical-align: top; }
+  vertical-align: middle; }
 
 [class-box~="bricks(+)(right)"] {
   text-align: right; }
 
 [class-box~="bricks(+)(right)"] > * {
   display: inline-block;
-  vertical-align: top; }
+  vertical-align: middle; }
 
 /*----------------------------------------------------------------*/
 [class-box~="bricks(bottom)(left)"] {
