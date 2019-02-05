@@ -52,38 +52,32 @@
 /* box: block */
 /*------------------------------------------------------------------------------------------------*/
 
-[class-box~="block_"] > * {
-  display: block;
-}
 [class-box~="block"] {
   display: block;
 }
 
 /*----------------------------------------------------------------*/
 
-[class-box~="left_"] > * {
-  margin-left: 0;
-  margin-right: auto;
+[class-box~="blocks"] > * {
+  display: block;
 }
-[class-box~="left"] {
+
+/*----------------------------------------------------------------*/
+
+[class-box~="blocks\(left\)"] > * {
+  display: block;
   margin-left: 0;
   margin-right: auto;
 }
 
-[class-box~="center_"] > * {
-  margin-left: auto;
-  margin-right: auto;
-}
-[class-box~="center"] {
+[class-box~="blocks\(+\)"] > * {
+  display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-[class-box~="right_"] > * {
-  margin-left: auto;
-  margin-right: 0;
-}
-[class-box~="right"] {
+[class-box~="blocks\(right\)"] > * {
+  display: block;
   margin-left: auto;
   margin-right: 0;
 }
@@ -93,71 +87,228 @@
 /* box: brick */
 /*------------------------------------------------------------------------------------------------*/
 
-[class-box~="brick_"] > * {
-  display: inline-block;
-}
 [class-box~="brick"] {
   display: inline-block;
 }
 
 /*----------------------------------------------------------------*/
 
-[class-box~="top_"] > * {
-  vertical-align: top;
+[class-box~="bricks"] {
 }
-[class-box~="top"] {
+[class-box~="bricks"] > * {
+  display: inline-block;
+}
+
+/*----------------------------------------------------------------*/
+
+[class-box~="bricks\(left\)\(top\)"] {
+  text-align: left;
+}
+[class-box~="bricks\(left\)\(top\)"] > * {
+  display: inline-block;
   vertical-align: top;
 }
 
-[class-box~="middle_"] > * {
-  vertical-align: middle;
+[class-box~="bricks\(left\)\(\+\)"] {
+  text-align: left;
 }
-[class-box~="middle"] {
+[class-box~="bricks\(left\)\(\+\)"] > * {
+  display: inline-block;
   vertical-align: middle;
 }
 
-[class-box~="bottom_"] > * {
-  vertical-align: bottom;
+[class-box~="bricks\(left\)\(bottom\)"] {
+  text-align: left;
 }
-[class-box~="bottom"] {
+[class-box~="bricks\(left\)\(bottom\)"] > * {
+  display: inline-block;
   vertical-align: bottom;
 }
 
 /*----------------------------------------------------------------*/
 
-[class-box~="to\(left\)_"]  {
-  text-align: left;
-}
-
-[class-box~="to\(xcenter\)_"],
-[class-box~="to\(x\+\)_"] {
+[class-box~="bricks\(\+\)\(top\)"] {
   text-align: center;
 }
-
-[class-box~="to\(right\)_"] {
-  text-align: right;
-}
-
-[class-box~="to\(top\)_"] > * {
+[class-box~="bricks\(\+\)\(top\)"] > * {
+  display: inline-block;
   vertical-align: top;
 }
 
-[class-box~="to\(ycenter\)_"] > *,
-[class-box~="to\(y\+\)_"] > * {
-  vertical-align: middle;
+[class-box~="bricks\(\+\)\(bottom\)"] {
+  text-align: center;
 }
-
-[class-box~="to\(bottom\)_"] > * {
+[class-box~="bricks\(\+\)\(bottom\)"] > * {
+  display: inline-block;
   vertical-align: bottom;
 }
 
-[class-box~="to\(center\)_"],
-[class-box~="to\(\+\)_"] {
+/*----------------------------------------------------------------*/
+
+[class-box~="bricks\(right\)\(top\)"] {
+  text-align: right;
+}
+[class-box~="bricks\(right\)\(top\)"] > * {
+  display: inline-block;
+  vertical-align: top;
+}
+
+[class-box~="bricks\(right\)\(\+\)"] {
+  text-align: right;
+}
+[class-box~="bricks\(right\)\(\+\)"] > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+[class-box~="bricks\(right\)\(bottom\)"] {
+  text-align: right;
+}
+[class-box~="bricks\(right\)\(bottom\)"] > * {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+/*----------------------------------------------------------------*/
+
+[class-box~="bricks\(top\)\(left\)"] {
+  text-align: left;
+}
+[class-box~="bricks\(top\)\(left\)"] > * {
+  display: inline-block;
+  vertical-align: top;
+}
+
+[class-box~="bricks\(top\)\(\+\)"] {
   text-align: center;
 }
-[class-box~="to\(center\)_"] > *,
-[class-box~="to\(\+\)_"] > * {
+[class-box~="bricks\(top\)\(\+\)"] > * {
+  display: inline-block;
+  vertical-align: top;
+}
+
+[class-box~="bricks\(top\)\(right\)"] {
+  text-align: right;
+}
+[class-box~="bricks\(top\)\(right\)"] > * {
+  display: inline-block;
+  vertical-align: top;
+}
+
+/*----------------------------------------------------------------*/
+
+[class-box~="bricks\(\+\)\(left\)"] {
+  text-align: left;
+}
+[class-box~="bricks\(\+\)\(left\)"] > * {
+  display: inline-block;
+  vertical-align: top;
+}
+
+[class-box~="bricks\(\+\)\(right\)"] {
+  text-align: right;
+}
+[class-box~="bricks\(\+\)\(right\)"] > * {
+  display: inline-block;
+  vertical-align: top;
+}
+
+/*----------------------------------------------------------------*/
+
+[class-box~="bricks\(bottom\)\(left\)"] {
+  text-align: left;
+}
+[class-box~="bricks\(bottom\)\(left\)"] > * {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+[class-box~="bricks\(bottom\)\(\+\)"] {
+  text-align: center;
+}
+[class-box~="bricks\(bottom\)\(\+\)"] > * {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+[class-box~="bricks\(bottom\)\(right\)"] {
+  text-align: right;
+}
+[class-box~="bricks\(bottom\)\(right\)"] > * {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+/*----------------------------------------------------------------*/
+
+[class-box~="bricks\(\+\)"] {
+  text-align: center;
+}
+[class-box~="bricks\(\+\)"] > * {
+  display: inline-block;
   vertical-align: middle;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/* box: to(align) */
+/*------------------------------------------------------------------------------------------------*/
+
+[class-box~="to\(left\)"]  {
+  text-align: left;
+}
+[class-box~="to\(left\)"] > * {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+[class-box~="to\(x\+\)"] {
+  text-align: center;
+}
+[class-box~="to\(x\+\)"] > * {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+[class-box~="to\(right\)"] {
+  text-align: right;
+}
+[class-box~="to\(right\)"] > * {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/*----------------------------------------------------------------*/
+
+[class-box~="to\(top\)"] > * {
+  vertical-align: top;
+  margin-top: 0;
+  margin-bottom: auto;
+}
+
+[class-box~="to\(y\+\)"] > * {
+  vertical-align: middle;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+[class-box~="to\(bottom\)"] > * {
+  vertical-align: bottom;
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+/*----------------------------------------------------------------*/
+
+[class-box~="to\(\+\)"] {
+  text-align: center;
+}
+[class-box~="to\(\+\)"] > * {
+  vertical-align: middle;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 
