@@ -6,6 +6,10 @@
 	],
 	
 	"settings": {
-		"editor.minimap.enabled": false
+		"editor.minimap.enabled": false,
+		"files.exclude": {
+			".gitignore": true,
+			"make_symbolic_links.bat": true
+		},
 	}
 }
